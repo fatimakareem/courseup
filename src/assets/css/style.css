@@ -4546,7 +4546,7 @@ ol li::before {
 }
 
 .single-event .contacts_map {
-    margin-bottom: 0
+    margin: 20px 0 0;
 }
 
 .single-event #map-canvas {
@@ -4554,13 +4554,14 @@ ol li::before {
 }
 
 .single-event-img {
-    margin-bottom: 19px
+    overflow: hidden;
+    border-radius: 20px;
 }
 
 .single-event-img img {
     display: block;
     width: 100%;
-    border-radius: 9px
+    object-fit: cover;
 }
 
 .single-event__date {
@@ -4571,13 +4572,27 @@ ol li::before {
     text-align: center;
     margin-bottom: 13px
 }
-
+.single-event__date1 {
+    font-size: 72px;
+    line-height: 60px;
+    font-weight: 400;
+    color: #f80000;
+    text-align: left;
+    margin-bottom: 13px
+}
 .single-event__month {
     font-size: 14px;
     line-height: 16px;
     color: #727e85;
     text-align: center;
     margin-bottom: 30px
+}
+.single-event__month1 {
+    font-size: 14px;
+    line-height: 16px;
+    color: #727e85;
+    text-align: left;
+    margin-bottom: 10px
 }
 
 .single-event__time {
@@ -4631,8 +4646,7 @@ form:after {
 }
 
 .single-event__share {
-    padding-top: 30px;
-    margin-bottom: 50px
+    padding: 10px 0;
 }
 
 .single-event__share-text {
@@ -4922,7 +4936,8 @@ form:after {
 #map-canvas {
     height: 514px;
     border: 1px solid #eee;
-    border-radius: 10px
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .contacts_map {
@@ -7681,7 +7696,7 @@ figcaption p i {
 
 .about-module,
 .padding-L-0 {
-    padding: 0
+    padding: 0;
 }
 
 .btn-save {
@@ -8506,6 +8521,9 @@ figcaption p i {
     }
 }
 @media only screen and (max-width:768px) {
+    .single-event__date1{
+        margin-top: 20px;
+    }
     .faq-heading h1{
     font-size: 33px;
     margin-bottom: 0;

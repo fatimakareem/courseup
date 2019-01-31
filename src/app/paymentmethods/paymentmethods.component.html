@@ -42,12 +42,12 @@
                     </div>
                 </div>
                 <form class="mat-placeholder" [formGroup]="form">
-                    <mat-form-field class="col-md-6">
+                    <mat-form-field class="col-md-6 col-sm-6">
                         <mat-select placeholder="Card Type" [formControl]="var_type_atm" (change)="ShowButton(var_type_atm.value)">
                             <mat-option *ngFor="let card_get_datat of card_opeation" [value]="card_get_datat.value">{{card_get_datat.viewValue}}</mat-option>
                         </mat-select>
                     </mat-form-field>
-                    <mat-form-field class="col-md-6"> <input matInput type="text" minlength="3" maxlength="14"
+                    <mat-form-field class="col-md-6 col-sm-6"> <input matInput type="text" minlength="3" maxlength="14"
                             placeholder="Cardholder Name" formControlName="cardnickname">
                         <mat-error *ngIf="form.controls.cardnickname.touched && form.controls.cardnickname.invalid">
                             <mat-error *ngIf="form.controls.cardnickname.errors.required"> Card Holder name cannot be
@@ -62,7 +62,7 @@
                                 only in Alphabet. </mat-error>
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field class="col-md-6" *ngIf="cardnumber"> <input matInput type="text" placeholder="16 digit card number"
+                    <mat-form-field class="col-md-6 col-sm-6" *ngIf="cardnumber"> <input matInput type="text" placeholder="16 digit card number"
                             formControlName="cardnumber" [textMask]="{mask: cardmask}">
                         <mat-error *ngIf="form.controls.cardnumber.touched && form.controls.cardnumber.invalid">
                             <mat-error *ngIf="form.controls.cardnumber.errors.required"> Card number cannot be empty
@@ -77,7 +77,7 @@
                                 in digits. </mat-error>
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field class="col-md-6" *ngIf="cardnumber4"> <input matInput type="text" placeholder="15 digit card number"
+                    <mat-form-field class="col-md-6 col-sm-6" *ngIf="cardnumber4"> <input matInput type="text" placeholder="15 digit card number"
                             formControlName="cardnumber4" [textMask]="{mask: cardmask}">
                         <mat-error *ngIf="form.controls.cardnumber4.touched && form.controls.cardnumber4.invalid">
                             <mat-error *ngIf="form.controls.cardnumber4.errors.required"> Card number cannot be empty
@@ -92,7 +92,7 @@
                                 in digits. </mat-error>
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field class="col-md-6" *ngIf="ccv"> <input matInput type="password" maxlength="3"
+                    <mat-form-field class="col-md-6 col-sm-6" *ngIf="ccv"> <input matInput type="password" maxlength="3"
                             minlength="3" placeholder="CCV No." formControlName="ccv">
                         <mat-error *ngIf="form.controls.ccv.touched && form.controls.ccv.invalid">
                             <mat-error *ngIf="form.controls.ccv.errors.required"> CCV cannot be empty </mat-error>
@@ -104,7 +104,7 @@
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field class="col-md-6" *ngIf="ccv4"> <input matInput type="password" maxlength="4"
+                    <mat-form-field class="col-md-6 col-sm-6" *ngIf="ccv4"> <input matInput type="password" maxlength="4"
                             minlength="4" placeholder="CCV No." formControlName="ccv4">
                         <mat-error *ngIf="form.controls.ccv4.touched && form.controls.ccv4.invalid">
                             <mat-error *ngIf="form.controls.ccv4.errors.required"> CCV cannot be empty </mat-error>
@@ -116,7 +116,7 @@
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field class="col-md-6"> <input matInput placeholder="Expiry Date (MM/YY)" [textMask]="{mask: masks}"
+                    <mat-form-field class="col-md-6 col-sm-6"> <input matInput placeholder="Expiry Date (MM/YY)" [textMask]="{mask: masks}"
                             type="text" formControlName="expirydate" #exp (change)="chek(exp.value)">
                         <mat-error *ngIf="form.controls.expirydate.touched && form.controls.expirydate.invalid">
                             <mat-error *ngIf="form.controls.expirydate.errors.required"> Expiry date cannot be empty
@@ -125,7 +125,7 @@
                                 MM/YYYY format. </mat-error>
                         </mat-error><span class="card-error" *ngIf="expirydate <='18'"> Invalid Expiry Date </span>
                     </mat-form-field>
-                    <div class="col-md-12"> <a class="add-btn btn-file" (click)="add()">Add</a> </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12"> <a class="add-btn btn-file" (click)="add()">Add</a> </div>
                 </form>
                 <div class="table-responsive padding-20"> <label class="font-size-20 color-black example-full-width text-center">Saved
                     Crad Detail</label>
