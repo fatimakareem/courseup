@@ -1,7 +1,7 @@
-<div class="margin-bottom-20 margin-top-115 margin-res">
-    <div class="row basic-box">
+<div class="paymeny-method">
+    <div class="row">
         <div class="margin-auto user-profile margin-top117">
-            <div class="checkout">
+            <div class="basic-box checkout">
                 <div [className]="flipclass">
                     <div class="flip">
                         <div class="front">
@@ -41,14 +41,14 @@
                         </div>
                     </div>
                 </div>
-                <form class="user-add-ingo-form width-of-inputs sh-signup-form-fix" [formGroup]="form">
-                    <mat-form-field>
+                <form class="mat-placeholder" [formGroup]="form">
+                    <mat-form-field class="col-md-6">
                         <mat-select placeholder="Card Type" [formControl]="var_type_atm" (change)="ShowButton(var_type_atm.value)">
                             <mat-option *ngFor="let card_get_datat of card_opeation" [value]="card_get_datat.value">{{card_get_datat.viewValue}}</mat-option>
                         </mat-select>
                     </mat-form-field>
-                    <mat-form-field> <input matInput type="text" minlength="3" maxlength="14" placeholder="Cardholder Name"
-                            formControlName="cardnickname">
+                    <mat-form-field class="col-md-6"> <input matInput type="text" minlength="3" maxlength="14"
+                            placeholder="Cardholder Name" formControlName="cardnickname">
                         <mat-error *ngIf="form.controls.cardnickname.touched && form.controls.cardnickname.invalid">
                             <mat-error *ngIf="form.controls.cardnickname.errors.required"> Card Holder name cannot be
                                 empty </mat-error>
@@ -62,7 +62,7 @@
                                 only in Alphabet. </mat-error>
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field class="" *ngIf="cardnumber"> <input matInput type="text" placeholder="16 digit card number"
+                    <mat-form-field class="col-md-6" *ngIf="cardnumber"> <input matInput type="text" placeholder="16 digit card number"
                             formControlName="cardnumber" [textMask]="{mask: cardmask}">
                         <mat-error *ngIf="form.controls.cardnumber.touched && form.controls.cardnumber.invalid">
                             <mat-error *ngIf="form.controls.cardnumber.errors.required"> Card number cannot be empty
@@ -77,7 +77,7 @@
                                 in digits. </mat-error>
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field class="" *ngIf="cardnumber4"> <input matInput type="text" placeholder="15 digit card number"
+                    <mat-form-field class="col-md-6" *ngIf="cardnumber4"> <input matInput type="text" placeholder="15 digit card number"
                             formControlName="cardnumber4" [textMask]="{mask: cardmask}">
                         <mat-error *ngIf="form.controls.cardnumber4.touched && form.controls.cardnumber4.invalid">
                             <mat-error *ngIf="form.controls.cardnumber4.errors.required"> Card number cannot be empty
@@ -92,8 +92,8 @@
                                 in digits. </mat-error>
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field class="" *ngIf="ccv"> <input matInput type="password" maxlength="3" minlength="3"
-                            placeholder="CCV No." formControlName="ccv">
+                    <mat-form-field class="col-md-6" *ngIf="ccv"> <input matInput type="password" maxlength="3"
+                            minlength="3" placeholder="CCV No." formControlName="ccv">
                         <mat-error *ngIf="form.controls.ccv.touched && form.controls.ccv.invalid">
                             <mat-error *ngIf="form.controls.ccv.errors.required"> CCV cannot be empty </mat-error>
                             <mat-error *ngIf="form.controls.ccv.errors.minlength"> CCV must be
@@ -104,8 +104,8 @@
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field class="" *ngIf="ccv4"> <input matInput type="password" maxlength="4" minlength="4"
-                            placeholder="CCV No." formControlName="ccv4">
+                    <mat-form-field class="col-md-6" *ngIf="ccv4"> <input matInput type="password" maxlength="4"
+                            minlength="4" placeholder="CCV No." formControlName="ccv4">
                         <mat-error *ngIf="form.controls.ccv4.touched && form.controls.ccv4.invalid">
                             <mat-error *ngIf="form.controls.ccv4.errors.required"> CCV cannot be empty </mat-error>
                             <mat-error *ngIf="form.controls.ccv4.errors.minlength"> CCV must be
@@ -116,7 +116,7 @@
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field class=""> <input matInput placeholder="Expiry Date (MM/YY)" [textMask]="{mask: masks}"
+                    <mat-form-field class="col-md-6"> <input matInput placeholder="Expiry Date (MM/YY)" [textMask]="{mask: masks}"
                             type="text" formControlName="expirydate" #exp (change)="chek(exp.value)">
                         <mat-error *ngIf="form.controls.expirydate.touched && form.controls.expirydate.invalid">
                             <mat-error *ngIf="form.controls.expirydate.errors.required"> Expiry date cannot be empty
@@ -125,42 +125,35 @@
                                 MM/YYYY format. </mat-error>
                         </mat-error><span class="card-error" *ngIf="expirydate <='18'"> Invalid Expiry Date </span>
                     </mat-form-field>
-                    <mat-slide-toggle [checked]="false" formControlName="check">Set as default payment method</mat-slide-toggle>
-                    <a class="add-btn btn-file" (click)="add()">Add</a>
+                    <div class="col-md-12"> <a class="add-btn btn-file" (click)="add()">Add</a> </div>
                 </form>
+                <div class="table-responsive padding-20"> <label class="font-size-20 color-black example-full-width text-center">Saved
+                    Crad Detail</label>
+                <table class="table payment-table">
+                    <thead>
+                        <tr>
+                            <th>Card Type</th>
+                            <th>Cardholder</th>
+                            <th>Card Number</th>
+                            <th>Expiry Date</th><!-- <th>Default Credit Card</th> <th>Edit</th> -->
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let card of res">
+                        <tr>
+                            <td></td>
+                            <td>{{card.nickname}}</td>
+                            <td>{{card.cardNumber}}</td>
+                            <td>{{card.expiryDate | slice:0:2}}/20{{card.expiryDate | slice:2:4}}</td><!-- <div *ngIf="!card.default; then uncheck else check"></div><ng-template #check> <td><i class="fa fa-check"></i></td></ng-template> <ng-template #uncheck> <td><i class="fas fa-times"></i></td></ng-template> -->
+                            <!-- <td> <a (click)="getSingleCard(card.id,card.nickname,card.default)" data-target="#edit-card-modal" data-toggle="modal"> <i class="fa fa-edit"></i> </a> </td>-->
+                            <td> <a (click)="deleteSingleCard(card.id)"> <i class="fa fa-trash"></i> </a> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             </div>
         </div>
-        <div class="table-responsive margin-top-20">
-            <table class="table payment-table">
-                <thead>
-                    <tr>
-                        <th>Card Holder</th>
-                        <th>Card Number</th>
-                        <th>Expiry Date</th>
-                        <th>Default Credit Card</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody *ngFor="let card of res">
-                    <tr>
-                        <td>{{card.nickname}}</td>
-                        <td>{{card.cardNumber}}</td>
-                        <td>{{card.expiryDate | slice:0:2 }}/20{{card.expiryDate | slice:2:4 }}</td>
-                        <div *ngIf="!card.default; then uncheck else check"></div>
-                        <ng-template #check>
-                            <td><i class="fa fa-check"></i></td>
-                        </ng-template>
-                        <ng-template #uncheck>
-                            <td><i class="fas fa-times"></i></td>
-                        </ng-template>
-                        <td> <a (click)="getSingleCard(card.id,card.nickname,card.default)" data-target="#edit-card-modal"
-                                data-toggle="modal"> <i class="fa fa-edit"></i> </a> </td>
-                        <td> <a (click)="deleteSingleCard(card.id)"> <i class="fa fa-trash"></i> </a> </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        
     </div>
 </div>
 <div class="modal fade modal-form" id="edit-card-modal" role="dialog">
@@ -190,7 +183,8 @@
                         </mat-error>
                     </mat-form-field>
                     <mat-slide-toggle class="" [(ngModel)]="check_defalut" formControlName="check2">Set as default
-                        payment method</mat-slide-toggle> <a class="user-add-ingo-form-btn margin-top-10" (click)="updateSingleCard(cardid)" data-dismiss="modal">Update</a>
+                        payment method</mat-slide-toggle> <a class="user-add-ingo-form-btn margin-top-10" (click)="updateSingleCard(cardid)"
+                        data-dismiss="modal">Update</a>
                 </form>
             </div>
         </div>
