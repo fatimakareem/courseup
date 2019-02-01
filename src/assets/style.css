@@ -450,9 +450,10 @@ hr {
         width: 165px!important
     }
     .navbar-nav>li>a {
-        font-size: 16px;
+        font-size: 15px;
         padding: 0 5px!important
     }
+    
     .navbar-right li a,
     .user-detail li a {
         font-size: 16px!important
@@ -4913,7 +4914,7 @@ small {
 }
 
 .user-detail .navbar-nav>li>.dropdown-menu {
-    left: -9px;
+    left: -40px;
     position: absolute;
     width: auto
 }
@@ -5363,7 +5364,7 @@ small {
 
 @media (max-width:1200px) {
     .cartmenu sup {
-        margin: 0 -4px 0 0
+        margin: -4px -11px 0 0;
     }
     .header-absolute .container-fluid {
         padding: 0 20px
@@ -5836,9 +5837,9 @@ small {
     background-color: #F4F4F7;
     border: 0;
     border-bottom: 1px solid #ddd;
-    padding: 20px;
+    padding: 10px;
     color: #222;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: bolder;
     font-size: 22px
 }

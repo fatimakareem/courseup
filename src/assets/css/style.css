@@ -1092,7 +1092,7 @@ ol li::before {
     vertical-align: top;
     border: 1px solid #000!important;
     box-shadow: 0 9px 18px -20px rgba(0, 0, 0, .42), 0 4px 15px 0 rgba(0, 0, 0, .12), 0 8px 8px -7px rgba(0, 0, 0, .2);
-    margin-bottom: 10px
+    /* margin-bottom: 10px */
 }
 
 .btn-02,
@@ -6441,10 +6441,12 @@ app-admin-panel {
 }
 
 .search-icons a i {
-    font-size: 18px;
+    font-size: 15px;
     margin: 6px 0!important
 }
-
+#log-name, .material-icons.md-18{
+    font-size: 15px;
+}
 .courseSpace {
     margin: 15px 0 0;
     border-bottom: 1px solid #ccc;
@@ -7690,7 +7692,8 @@ figcaption p i {
 }
 
 .btn-file {
-    padding: 8px 20px;
+    /* padding: 8px 20px; */
+    padding: 8px 13px;
     font-size: 16px
 }
 
@@ -8104,6 +8107,18 @@ figcaption p i {
 .widget h2{
     margin: 0;
     }
+.slider-rating-bar{
+    display: inline-block;
+    width: 100%;
+}
+.wishlist-heading{
+    font-size: 32px;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+}
+
+
 /* Start About page */
 .breadcrumbs li.active a::after,blockquote p::before{font-family:FontAwesome;display:inline-block;vertical-align:middle}.team-title a:hover{color:#f80000}blockquote p::before{content:'\f10d';font-size:30px;color:red;margin-right:14px}.breadcrumbs li.active a{color:#717577;font-weight:400;position:relative;padding-right:11px}.breadcrumbs li.active a::after{content:'\f105';color:#f80000;position:absolute;right:0;top:50%;margin-top:-8px}
 .counter-01 .stat_count{font-size:48px;line-height:48px;font-weight:600;margin-bottom:20px;color:#f80000}
@@ -8240,6 +8255,9 @@ figcaption p i {
     }
 }
 @media only screen and (max-width:1024px) {
+    .page-title-01 {
+        font-size: 41px;
+    }
     .basic-box {
         width: 90%;
     }
@@ -8807,9 +8825,13 @@ figcaption p i {
         max-width: 100%
     }
     .page-title-01 {
-        font-size: 38px;
+        font-size: 32px;
         line-height: 20px;
         /* margin: 45px 0 27px; */
+    }
+    .subtitle-01 {
+        font-size: 16px !important;
+        line-height: 22px !important;
     }
     blockquote p {
         font-size: 25px;
@@ -9612,8 +9634,8 @@ figcaption p i {
 
 @media only screen and (min-width:1200px) {
     .cartmenu sup{
-        top: -4px !important;
-        right: 6px !important;
+    top: -8px !important;
+    right: 1px !important;
     }
     .container-fluid1,
     .courseSlider {
@@ -9628,7 +9650,7 @@ figcaption p i {
 }
 @media only screen and (min-width:1366px) {
     .cartmenu sup{
-        right: 10px !important;
+        right: 8px !important;
     }
     .container-fluid1,
     .courseSlider {

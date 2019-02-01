@@ -164,7 +164,7 @@ export class CourseCheckoutComponent implements OnInit {
           this.res=Response;
     })
   }
-
+  
   seeTotal(){
       this.total = 0;
       for(let list of this.GlobalCartCourses.courses) {
@@ -247,11 +247,13 @@ this.hide=false;
 }
 }
 onSubmit() {
-  
+  if(this.model.cardNumber){
     this.obj2.add_payment(this.model.cardNumber.split('-').join(''), this.model.expirationdate.split('/').join(''), this.model.cardcod, this.model.amount,this.var_get_id,this.var_get_status,this.model.cardtype,this.model.holdername).subscribe();
     console.log(this.model.cardNumber, this.model.expirationdate, this.model.cardcod, this.model.amount,this.var_get_id,this.var_get_status);
- 
-  
+  }else if(this.model.defaultcard){
+    this.obj2.add_payment(this.model.defaultcard.split('-').join(''), this.model.expirationdate.split('/').join(''), this.model.cardcod, this.model.amount,this.var_get_id,this.var_get_status,this.model.cardtype,this.model.holdername).subscribe();
+    console.log(this.model.cardNumber, this.model.expirationdate, this.model.cardcod, this.model.amount,this.var_get_id,this.var_get_status);
+  }
  
 }
 

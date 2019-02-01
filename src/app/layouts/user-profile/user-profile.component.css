@@ -105,7 +105,8 @@ a:hover {
 .profile-sidebar h3 {
     margin: 0;
     text-transform: capitalize;
-    font-weight: 700
+    font-weight: 700;
+    font-size: 25px;
 }
 
 .sidenav {
