@@ -223,8 +223,8 @@ ol li {
 
 .content-box-01,
 .content-box-02,
-.content-row,
-body {
+.content-row
+ {
     overflow-x: hidden
 }
 
@@ -5853,7 +5853,8 @@ app-admin-panel:after {
 
 .list-sidebar li i {
     margin: -3px 5px 0 0;
-    vertical-align: middle
+    vertical-align: middle;
+    color: #f80000;
 }
 
 .search-outer {
@@ -6445,7 +6446,7 @@ app-admin-panel {
     margin: 6px 0!important
 }
 #log-name, .material-icons.md-18{
-    font-size: 15px;
+    font-size: 18px;
 }
 .courseSpace {
     margin: 15px 0 0;
@@ -7751,7 +7752,7 @@ figcaption p i {
 .inst-heading {
     border-radius: 10px;
     color: #000;
-    margin: 20px 0;
+    margin: 20px 0 0;
     font-size: 40px;
     font-weight: 700
 }
@@ -8077,7 +8078,7 @@ figcaption p i {
     margin: 0 auto 10px;
     padding: 0 0 10px;
     float: none;
-    box-shadow: 1px 1px 8px 1px #ece9e9
+    box-shadow: 1px 1px 8px 1px #ece9e9;
 }
 
 .mat-placeholder .mat-form-field {
@@ -8144,6 +8145,10 @@ figcaption p i {
     }
 }
 @media only screen and (max-width:1280px) {
+    
+    #log-name, .material-icons.md-18{
+        font-size: 15px;
+    }
     .fig-fix figure{
         height: 270px;
     }

@@ -119,10 +119,10 @@
                                         <div *ngIf="bid_data?.course?.course.inWishList==true"><i class="fa fa-heart"></i></div>
                                         <div *ngIf="bid_data?.course?.course.inWishList==false" (click)="onclick(i, bid_data?.course?.course?.id)"><i
                                                 class="fa fa-heart-o"></i></div>
-                                    </a> <button type="button" class="btn btn1 bid" *ngIf="bid_data?.course?.course.actual_price!=0"
-                                        (click)="buyNowClick(i, bid_data?.course?.course.id)">Buy Now</button> <button
-                                        type="button" class="btn btn1 bid" (click)="openDialog2(bid_data?.course?.id)"><i
-                                            class="fa fa-gavel"></i> Bid Now</button> </div>
+                                    </a> <button type="button" class="btn btn1 bid" (click)="openDialog2(bid_data?.course?.id)"><i
+                                            class="fa fa-gavel"></i> Bid Now </button> <button type="button" class="btn btn1 bid"
+                                        *ngIf="bid_data?.course?.course.actual_price!=0" (click)="buyNowClick(i, bid_data?.course?.course.id)">Buy
+                                        Now </button> </div>
                             </li>
                         </ngx-slick>
                     </div>
@@ -177,7 +177,8 @@
                                         </div>
                                         <div class="pull-right" *ngIf="data?.course?.actual_price!=0">{{data?.course?.actual_price
                                             | currency:'USD'}}</div>
-                                        <div class="pull-right" *ngIf="data?.course?.actual_price<=0"> Free</div>
+                                        <div class="pull-right" *ngIf="data?.course?.actual_price<=0">
+                                            Free</div>
                                     </div>
                                     <div class="row"> <a routerLink="/user-profile/{{data?.course?.user_id?.id}}" *ngIf="data?.course?.user_id.first_name && data?.course?.user_id.last_name"
                                             class="col-md-9 col-sm-7 col-lg-9 col-xs-7 product-list__category">{{data?.course?.user_id.first_name}}{{data?.course?.user_id.last_name}}</a>
@@ -251,7 +252,8 @@
                                         </div>
                                         <div class="pull-right" *ngIf="data?.course?.actual_price!=0">{{data?.course?.actual_price
                                             | currency:'USD'}}</div>
-                                        <div class="pull-right" *ngIf="data?.course?.actual_price<=0"> Free</div>
+                                        <div class="pull-right" *ngIf="data?.course?.actual_price<=0">
+                                            Free</div>
                                     </div>
                                     <div class="row"> <a routerLink="/user-profile/{{data?.course?.user_id?.id}}" *ngIf="data?.course?.user_id.first_name && data?.course?.user_id.last_name"
                                             class="col-xs-12 product-list__category">{{data?.course?.user_id.first_name}}{{data?.course?.user_id.last_name}}</a>
@@ -401,7 +403,8 @@
                                         </div>
                                         <div class="pull-right" *ngIf="data?.course?.actual_price!=0">{{data?.course?.actual_price
                                             | currency:'USD'}}</div>
-                                        <div class="pull-right" *ngIf="data?.course?.actual_price<=0"> Free</div>
+                                        <div class="pull-right" *ngIf="data?.course?.actual_price<=0">
+                                            Free</div>
                                     </div>
                                     <div class="row"> <a routerLink="/user-profile/{{data?.course?.user_id?.id}}" *ngIf="data?.course?.user_id.first_name && data?.course?.user_id.last_name"
                                             class="col-md-9 col-sm-7 col-lg-9 col-xs-7 product-list__category">{{data?.course?.user_id.first_name}}{{data?.course?.user_id.last_name}}</a>
@@ -475,7 +478,8 @@
                                         </div>
                                         <div class="pull-right" *ngIf="data?.course?.actual_price!=0">{{data?.course?.actual_price
                                             | currency:'USD'}}</div>
-                                        <div class="pull-right" *ngIf="data?.course?.actual_price<=0"> Free</div>
+                                        <div class="pull-right" *ngIf="data?.course?.actual_price<=0">
+                                            Free</div>
                                     </div>
                                     <div class="row"> <a routerLink="/user-profile/{{data?.course?.user_id?.id}}" *ngIf="data?.course?.user_id.first_name && data?.course?.user_id.last_name"
                                             class="col-xs-12 product-list__category">{{data?.course?.user_id.first_name}}{{data?.course?.user_id.last_name}}</a>
@@ -549,7 +553,8 @@
                                         </div>
                                         <div class="pull-right" *ngIf="data?.course?.actual_price!=0">{{data?.course?.actual_price
                                             | currency:'USD'}}</div>
-                                        <div class="pull-right" *ngIf="data?.course?.actual_price<=0"> Free</div>
+                                        <div class="pull-right" *ngIf="data?.course?.actual_price<=0">
+                                            Free</div>
                                     </div>
                                     <div class="row"> <a routerLink="/user-profile/{{data?.course?.user_id?.id}}" *ngIf="data?.course?.user_id.first_name && data?.course?.user_id.last_name"
                                             class="col-md-9 col-sm-7 col-lg-9 col-xs-7 product-list__category">{{data?.course?.user_id.first_name}}{{data?.course?.user_id.last_name}}</a>
@@ -624,7 +629,8 @@
                                             </div>
                                             <div class="pull-right" *ngIf="data?.course?.actual_price!=0">{{data?.course?.actual_price
                                                 | currency:'USD'}}</div>
-                                            <div class="pull-right" *ngIf="data?.course?.actual_price<=0"> Free </div>
+                                            <div class="pull-right" *ngIf="data?.course?.actual_price<=0">
+                                                Free </div>
                                         </div>
                                         <div class="row"> <a routerLink="/user-profile/{{data?.course?.user_id?.id}}"
                                                 *ngIf="data?.course?.user_id.first_name && data?.course?.user_id.last_name"
