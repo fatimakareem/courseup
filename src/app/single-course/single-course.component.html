@@ -1,4 +1,4 @@
-<section class="banner-upper" data-diff="100" *ngIf="route_instructor===instructor_id">
+<section class="banner-upper" data-diff="100" *ngIf="route_instructor">
     <div class="container ">
         <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -11,7 +11,7 @@
         </div>
     </div>
 </section>
-<section class="section bgw" *ngIf="route_instructor===instructor_id">
+<section class="section bgw" *ngIf="route_instructor">
     <div class="container">
         <div class="row">
             <div id="post-content" class="col-md-12 col-sm-12">
@@ -179,7 +179,7 @@
         </div>
     </div>
 </section>
-<div class="modal fade video" id="loadVideo" tabindex="-1" role="dialog" aria-labelledby="loadVideoLabel" *ngIf="route_instructor===instructor_id">
+<div class="modal fade video" id="loadVideo" tabindex="-1" role="dialog" aria-labelledby="loadVideoLabel" *ngIf="route_instructor">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -197,7 +197,7 @@
         </div>
     </div>
 </div>
-<section class="banner-upper" data-diff="100" *ngIf="route_instructor!=instructor_id">
+<section class="banner-upper" data-diff="100" *ngIf="!route_instructor">
     <div class="container ">
         <div class="row">
             <div class="col-md-8 col-sm-8">
@@ -279,7 +279,7 @@
         </div>
     </div>
 </section>
-<section class="section bgw" *ngIf="route_instructor!=instructor_id">
+<section class="section bgw" *ngIf="!route_instructor">
     <div class="container">
         <div class="row">
             <div id="post-content" class="col-md-8 col-sm-8">
@@ -506,7 +506,7 @@
         </div>
     </div>
 </section>
-<div class="modal fade video" id="loadVideo" tabindex="-1" role="dialog" aria-labelledby="loadVideoLabel" *ngIf="route_instructor!=instructor_id">
+<div class="modal fade video" id="loadVideo" tabindex="-1" role="dialog" aria-labelledby="loadVideoLabel" *ngIf="!route_instructor">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span

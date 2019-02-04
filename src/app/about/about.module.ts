@@ -21,9 +21,6 @@ const aboutRoutes: Routes = [
     BenefitsModule
   ],
 
-  providers: [],
-  exports: []
-
 })
 
 export class AboutModule {
