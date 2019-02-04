@@ -5906,7 +5906,8 @@ small {
     border-radius: 100%;
     right: 10px;
     font-size: 30px;
-    text-decoration: none
+    text-decoration: none;
+    text-align: center;
 }
 
 @media (max-width:468px) {
