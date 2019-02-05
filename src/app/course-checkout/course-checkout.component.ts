@@ -235,14 +235,14 @@ export class CourseCheckoutComponent implements OnInit {
   res;
 
 updefault;
-hide:boolean=true;
+isright:boolean=false;
 set_default:boolean=false;
 Add_new(){
   alert(this.set_default)
 if(this.set_default==true){
-  this.hide=true;
+  this.isright=false;
 }else if(this.set_default==false){
-this.hide=false;
+this.isright=true;
 
 }
 }

@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                             </div>
-                <form (ngSubmit)="!ExpiryDateForm.hasError('required') && !ExpiryDateForm.hasError('pattern') && CardCodeForm.hasError('minlength')&& !CardCodeForm.hasError('maxlength')&& !CardNumberForm.hasError('required') && !CardNumberForm.hasError('pattern') && onSubmit(f)"
+                <form (ngSubmit)="!ExpiryDateForm.hasError('required') && !ExpiryDateForm.hasError('pattern') && CardCodeForm.hasError('minlength')&& !CardCodeForm.hasError('maxlength')&& !CardNumberForm.hasError('required') && !CardNumberForm.hasError('pattern') && onSubmit()"
                     #f="ngForm" id="videoform" class="form-horizontal row sh-signup-form-fix" name="videoform" method="post">
                     <div class="col-lg-12 center-div col-md-12">
                         <div class="panel-info contact_form">
@@ -126,7 +126,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12"> <button type="submit" class="btn-file pull-right" (click)="onSubmit(f)">Place
+            <div class="col-sm-12"> <button type="submit" class="btn-file pull-right" (click)="onSubmit()">Place
                 Order</button> </div>
         </div>     
     </div>

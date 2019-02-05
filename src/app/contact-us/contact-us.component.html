@@ -60,11 +60,11 @@
                                         <mat-error *ngIf="message.hasError('pattern')"> Please enter a <strong> valid
                                             </strong> message </mat-error>
                                     </mat-form-field> 
-                                    <div class="col-md-8" [ngClass]="{'has-error': f.submitted && !captcha}">
+                                    <!-- <div class="col-md-8" [ngClass]="{'has-error': f.submitted && !captcha}">
                                             <re-captcha (resolved)="resolved($event)" siteKey="6LcMeE4UAAAAAORPbOfwjGczzxsz843f24BA92IN"
                                                 required></re-captcha>
                                             <div *ngIf="f.submitted && !captcha" class="help-block">ReCaptcha is required</div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-md-4">
                                         <button type="submit" value="SEND" id="submit" class="msg-send-btn btn-file pull-right">
                                                 Send Message</button>

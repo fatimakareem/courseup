@@ -105,18 +105,18 @@ export class BuynowDialogComponent implements OnInit {
         this.ccvmask=[/[0-9]/, /\d/, /\d/]
        }
     }
-    hide:boolean=true;
+    isright:boolean=false;
     set_default:boolean=false;
     Add_new(){
       alert(this.set_default)
     if(this.set_default==true){
-      this.hide=true;
+      this.isright=false;
     }else if(this.set_default==false){
-    this.hide=false;
+    this.isright=true;
     
     }
     }
-  onSubmit(f: NgForm) {
+  onSubmit() {
    
     this.obj.coursepayment( this.model.cardNumber.split('-').join(''), this.model.expirationdate.split('/').join(''),this.model.cardcod,this.var_get_id,this.data.course_id,this.model.cardtype,this.model.holdername).subscribe();
    
