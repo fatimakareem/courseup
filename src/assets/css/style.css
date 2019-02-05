@@ -5720,7 +5720,8 @@ form:after {
 .mat-dialog-container .card h4 {
     font-size: 30px;
     font-weight: 600;
-    color: #fff
+    color: #fff;
+    margin: 0;
 }
 
 .mat-dialog-container .card .close {
