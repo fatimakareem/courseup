@@ -96,7 +96,9 @@
 .padding-l-r-15 {
     padding: 0 15px
 }
-
+.height-54{
+    height: 54px;
+}
 .profile-main .service-block-v3 .progress {
     width: 100%;
     background: #fff;
@@ -1092,7 +1094,7 @@ ol li::before {
     vertical-align: top;
     border: 1px solid #000!important;
     box-shadow: 0 9px 18px -20px rgba(0, 0, 0, .42), 0 4px 15px 0 rgba(0, 0, 0, .12), 0 8px 8px -7px rgba(0, 0, 0, .2);
-    /* margin-bottom: 10px */
+    margin-bottom: 7px !important;
 }
 
 .btn-02,
@@ -6443,7 +6445,7 @@ app-admin-panel {
 }
 
 .search-icons a i {
-    font-size: 15px;
+    font-size: 18px;
     margin: 6px 0!important
 }
 #log-name, .material-icons.md-18{
@@ -7187,11 +7189,16 @@ figcaption {
 figcaption p {
     font-size: 12px;
     margin: 0;
-    line-height: 17px
+    line-height: 17px;
+    position: relative;
+    padding: 0 0 0 15px;
 }
 
 figcaption p i {
-    margin-left: 3px
+    /* margin-left: 3px; */
+    position: absolute;
+    top: 4px;
+    left: 0;
 }
 
 .star-icons-li {
@@ -8926,7 +8933,6 @@ figcaption p i {
         text-align: left
     }
     .copy-info,
-    .footer-info,
     .product-list,
     .single-event__list,
     .text-xs-center {
