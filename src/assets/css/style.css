@@ -7193,6 +7193,9 @@ figcaption p {
     position: relative;
     padding: 0 0 0 15px;
 }
+figcaption p:first-child{
+    padding: 0;
+}
 
 figcaption p i {
     /* margin-left: 3px; */
