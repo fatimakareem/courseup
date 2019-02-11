@@ -7,7 +7,6 @@ import {TopRatedCoursesModule} from '../courses-all/top-rated-courses/top-rated-
 import {SubCategoryCoursesComponent} from './sub-category-courses.component';
 import {SubcatTrendingNowCoursesComponent} from './subcat-trending-now-courses/subcat-trending-now-courses.component';
 import {SubcatTopRatedCoursesComponent} from './subcat-top-rated-courses/subcat-top-rated-courses.component';
-import {SubcatRecommendedCoursesComponent} from './subcat-recommended-courses/subcat-recommended-courses.component';
 import {SubcatBidCoursesComponent} from './subcat-bid-courses/subcat-bid-courses.component';
 import { SlickModule } from 'ngx-slick';
 import {RatingModule} from "ng2-rating";
@@ -23,8 +22,7 @@ const subcategoryCoursesRoutes: Routes = [
     SubCategoryCoursesComponent,
     SubcatBidCoursesComponent,
     SubcatTrendingNowCoursesComponent,
-    SubcatTopRatedCoursesComponent,
-    SubcatRecommendedCoursesComponent
+    SubcatTopRatedCoursesComponent
 
   ],
 
