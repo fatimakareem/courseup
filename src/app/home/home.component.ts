@@ -667,7 +667,7 @@ if (isPlatformBrowser(this.platformId)) {
       showConfirmButton: false,
       width: '512px',
       timer: 2000,
-      position: 'top-end'
+      // position: 'top-end'
     });
   }
 
