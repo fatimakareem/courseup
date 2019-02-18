@@ -126,7 +126,7 @@ export class SignUpComponent implements OnInit {
   usernameError() {
     swal({
       type: 'error',
-      title: 'Failed to Sign Up! <br> User name already exists!',
+      title: 'Failed to Sign Up! <br> Username already exists!',
       width: '512px'
     })
   }
@@ -185,7 +185,7 @@ export class SignUpComponent implements OnInit {
   usernameVerificationError() {
     swal({
       type: 'error',
-      title: 'Oops! <br> User name already exists!',
+      title: 'Oops! <br> Username already exists!',
       showConfirmButton: false,
       width: '512px',
       timer: 2500
