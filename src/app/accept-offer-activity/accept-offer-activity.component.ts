@@ -7,14 +7,15 @@ import { RecentlyViewedCoursesComponent } from '../courses-all/recently-viewed-c
 import { MatDialog } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GlobalService } from '../global.service';
-import { WinbidDialogComponent } from '../winbid-dialog/winbid-dialog.component';
+import { OfferPayoutDialogComponent } from '../offer-payout-dialog/offer-payout-dialog.component';
 
 @Component({
-  selector: 'app-winbid-user',
-  templateUrl: './winbid-user.component.html',
-  styleUrls: ['./winbid-user.component.scss']
+  selector: 'app-accept-offer-activity',
+  templateUrl: './accept-offer-activity.component.html',
+  styleUrls: ['./accept-offer-activity.component.scss']
 })
-export class WinbidUserComponent implements OnInit {
+export class AcceptOfferActivityComponent implements OnInit {
+
   public response: any = [];
   public res: any = [];
   public check: any = [];
@@ -32,15 +33,15 @@ export class WinbidUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.GetBidUser();
+    this.Getacceptoffer();
 
   }
 
-  GetBidUser() {
-    this.obj.Biduser().subscribe(data => {
+  Getacceptoffer() {
+    this.obj.accept_offer().subscribe(data => {
 
-      this.response = data['Win List'];
-      this.res = data['Lose List'];
+      this.response = data
+     
 
     })
 
@@ -50,7 +51,7 @@ export class WinbidUserComponent implements OnInit {
     // alert(course_id);
 
     if (this.Logedin === '1') {
-      const dialogRef = this.dialog.open(WinbidDialogComponent, {
+      const dialogRef = this.dialog.open(OfferPayoutDialogComponent, {
         width: '500px',
         data: {
           course_id: course_id,

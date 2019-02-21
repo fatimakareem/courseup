@@ -7,11 +7,11 @@ import { PaymentmethodsService } from '../paymentmethods/paymentmethods.service'
 import {Subscription} from 'rxjs/Subscription';
 import swal from 'sweetalert2'
 @Component({
-  selector: 'app-winbid-dialog',
-  templateUrl: './winbid-dialog.component.html',
-  styleUrls: ['./winbid-dialog.component.scss']
+  selector: 'app-offer-payout-dialog',
+  templateUrl: './offer-payout-dialog.component.html',
+  styleUrls: ['./offer-payout-dialog.component.scss']
 })
-export class WinbidDialogComponent implements OnInit {
+export class OfferPayoutDialogComponent implements OnInit {
   constructor(private obj_payment_service:PaymentmethodsService,public dialogRef: MatDialogRef<WinbidUserComponent>, @Inject(MAT_DIALOG_DATA) public data: any,public obj:HeaderService) { }
   CCV: FormGroup;
   CardNumber = '^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$';
@@ -25,8 +25,7 @@ export class WinbidDialogComponent implements OnInit {
   }
   res;
   status;
-  // cardtype;
-  // holdername
+ 
   public model: any = {};
   var_get_status;var_get_id;
   card_opeation=[
@@ -61,18 +60,14 @@ export class WinbidDialogComponent implements OnInit {
      
       
     ]);
-    // TotalAmountForm = new FormControl('', [
-    //   Validators.required
-    // ]);
+   
     expirydate;
     chek(val){
-      // this.expirydate=val.toString().slice(3,7);
       this.expirydate=val.toString().slice(3,5);
       console.log(this.expirydate,'jj')
     }
     public mask=function(rawValue) {
      
-      // add logic to generate your mask array  
       if (rawValue && rawValue.length > 0) {
           if (rawValue[0] == '0' || rawValue[5] == '1') {
               return [/[01]/, /[1-9]/, '/',  /[0-9]/, /[0123456789]/];
@@ -88,7 +83,6 @@ export class WinbidDialogComponent implements OnInit {
     public cardmask =[/[0-9]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   
     ShowButton(var_type_atm) {
-      // this.cardtype = var_type_atm;
       if (var_type_atm == "American Express") {
        this.cardmask = [/[3]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/]
        this.ccvmask=[/[0-9]/, /\d/, /\d/,/\d/]
@@ -119,13 +113,12 @@ export class WinbidDialogComponent implements OnInit {
   onSubmit() {
     
     if(this.isright){
-      this.obj.winbidpayment(this.isright,this.model.cardNumber.split('-').join(''), this.model.expirationdate.split('/').join(''),this.model.cardcod,this.var_get_id,this.data.course_id,this.model.cardtype,this.model.holdername).subscribe( data => {
+      this.obj.offerpayment(this.isright,this.model.cardNumber.split('-').join(''), this.model.expirationdate.split('/').join(''),this.model.cardcod,this.var_get_id,this.data.course_id,this.model.cardtype,this.model.holdername).subscribe( data => {
        
         if(data.status==false){
           swal({
             type: 'error',
             title: 'Oops <br> Something Went Worng!',
-            // text: 'Failed to approve course!',
             showConfirmButton: false,
             width: '512px',
             timer: 2500
@@ -142,12 +135,11 @@ export class WinbidDialogComponent implements OnInit {
       });
       
     }else if(!this.isright){
-      this.obj.winbidpayment(this.isright,this.model.cardNumber, this.model.expirationdate,this.model.cardcod,this.var_get_id,this.data.course_id,this.model.cardtype,this.model.holdername).subscribe(data => {
+      this.obj.offerpayment(this.isright,this.model.cardNumber, this.model.expirationdate,this.model.cardcod,this.var_get_id,this.data.course_id,this.model.cardtype,this.model.holdername).subscribe(data => {
         if(data.status==false){
           swal({
             type: 'error',
             title: 'Oops <br> Something Went Worng!',
-            // text: 'Failed to approve course!',
             showConfirmButton: false,
             width: '512px',
             timer: 2500

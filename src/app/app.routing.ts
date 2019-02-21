@@ -75,6 +75,8 @@ const appRoutes: Routes = [
       { path: 'users/conform-subscription/:link', loadChildren: './subscription-confirmation/subscription-confirmation.module#SubscriptionConfirmationModule' },
       {path : 'winbid', loadChildren: './winbid/winbid.module#WinbidModule'},
       {path : 'winbidUser', loadChildren: './winbid-user/winbid-user.module#WinbidUserModule'},
+      {path : 'accept-offer-activity', loadChildren: './accept-offer-activity/accept-offer-activity.module#AcceptOfferActivityModule'},
+
       { path: 'bid-courses', loadChildren: './courses-all/courses-on-bid/courses-on-bid.module#CoursesOnBidModule' },
 
     ]

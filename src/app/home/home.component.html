@@ -142,7 +142,10 @@
                                         (click)="openDialog2(bid_data?.course?.id)"><i class="fa fa-gavel"></i> Bid Now
                                     </button> <button type="button" class="btn btn1 bid"
                                         *ngIf="bid_data?.course?.course.actual_price!=0"
-                                        (click)="buyNowClick(i, bid_data?.course?.course.id)">Buy Now </button> </div>
+                                        (click)="buyNowClick(i, bid_data?.course?.course.id)">Buy Now </button>
+                                        <button type="button" class="btn btn1 bid"
+                                        *ngIf="bid_data?.course?.course.accept_offer ==true"
+                                        (click)="AcceptDialog(bid_data?.course?.course.id)">Accept Offer </button> </div>
                             </li>
                         </ngx-slick>
                     </div>
@@ -403,8 +406,10 @@
                                         *ngIf="bid_data?.course?.course.actual_price!=0"
                                         (click)="buyNowClick(i, bid_data?.course?.course.id)">Buy Now</button> <button
                                         type="button" class="btn btn1 bid"
-                                        (click)="openDialog2(bid_data?.course?.id)"><i class="fa fa-gavel"></i> Bid
-                                        Now</button> </div>
+                                        (click)="AcceptDialog(bid_data?.course?.id)"><i class="fa fa-gavel"></i> Bid
+                                        Now</button> <button type="button" class="btn btn1 bid"
+                                        *ngIf="bid_data?.course?.course.accept_offer ==true"
+                                        (click)="AcceptDialog(bid_data?.course?.course.id)">Accept Offer </button> </div>
                             </li>
                         </ngx-slick>
                     </div>

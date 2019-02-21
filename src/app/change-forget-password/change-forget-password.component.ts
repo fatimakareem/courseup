@@ -14,8 +14,7 @@ export class ChangeForgetPasswordComponent implements OnInit {
   public captcha: boolean = false;
   private link: string;
   private sub: Subscription;
-  hide = 'Hide';
-  hide2 = 'Hide';
+  hide = true;
 
   password_regex = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$';
 

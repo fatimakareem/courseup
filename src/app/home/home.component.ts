@@ -15,6 +15,7 @@ import {FormControl, NgModel, Validators, ReactiveFormsModule} from '@angular/fo
 import {HeaderService} from '../header/header.service';
 import {SimpleGlobal} from "ng2-simple-global";
 import { BuynowDialogComponent } from '../buynow-dialog/buynow-dialog.component';
+import { AcceptOfferDialogComponent } from '../accept-offer-dialog/accept-offer-dialog.component';
 
 // import { HomeSliderEidtDialogComponent } from './.component';
 declare const $: any;
@@ -670,7 +671,18 @@ if (isPlatformBrowser(this.platformId)) {
       // position: 'top-end'
     });
   }
+  AcceptDialog(id): void {
+    if (this.Logedin == '1') {
+      const dialogRef = this.dialog.open(AcceptOfferDialogComponent, {
+        width: '500px',
+        data: { id: id }
+      });
+    } else {
+      HomeComponent.Authenticat();
+      this.nav.navigate(['login']);
+    }
 
+  }
 
   openDialog2(bid_id): void {
     if (this.Logedin == '1') {
