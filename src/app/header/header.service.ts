@@ -92,7 +92,16 @@ export class HeaderService {
     headers.append('Content-Type', 'application/json');
     return this._http2.get( Config.api + 'courses/search/', {headers : headers}).map((response: Response) => response.json());
   }
+  accept_offer(){
 
+    const headers = new Headers();
+
+    if (isPlatformBrowser(this.platformId)) {
+      headers.append('Authorization', 'JWT ' + localStorage.getItem('Authorization').toString());
+    }
+    headers.append('Content-Type', 'application/json');
+    return this._http2.get( Config.api + 'courses/offer_accepted_UserCourses/', {headers : headers}).map((response: Response) => response.json());
+  }
   Biduser(){
 
     const headers = new Headers();
@@ -265,7 +274,7 @@ export class HeaderService {
   }
  
 
-  coursepayment(cardNumber, expirationdate, cardcod,id,course_id,type,holder) {
+  coursepayment(isright,cardNumber, expirationdate, cardcod,id,course_id,type,holder) {
    
     //  console.log('Chapter Name is ' + amount);
       const headers = new Headers();
@@ -273,26 +282,26 @@ export class HeaderService {
         headers.append('Authorization', 'JWT ' + localStorage.getItem('Authorization').toString());
       }
       headers.append('Content-Type', 'application/json');
-      if(cardNumber.slice(0,1)=='*')
+      if(isright==false)
       {
         return this._http2.post(Config.api + 'courses/payamount/', 
         {
         "course_id":course_id,
-            'id': id,
+            'id': cardNumber,
           }, {headers: headers}).map((res: Response) => {
           if (res) {
             // console.log('1');
-            if (res.status === 201 || res.status === 200) {
+            if (res.status === 201 || res.status === 200 || res.status===202) {
               const responce_data = res.json();
               // localStorage.setItem('user_id', responce_data.id);
               // this.users_id = localStorage.getItem('user_id');
-              return [{status: res.status, json: res}];
+              return responce_data;
             } else if (res.status === 5300) {
               // this._nav.navigate(['/login']);
     
               // localStorage.setItem('conformation', '1');
               // console.log('ok submited 200');
-              return [{status: res.status, json: res}];
+              // return [{status: res.status, json: res}];
             } else {
               // console.log('ok');
             }
@@ -329,17 +338,17 @@ export class HeaderService {
           }, {headers: headers}).map((res: Response) => {
           if (res) {
             // console.log('1');
-            if (res.status === 201 || res.status === 200) {
+            if (res.status === 201 || res.status === 200 || res.status===202) {
               const responce_data = res.json();
               // localStorage.setItem('user_id', responce_data.id);
               // this.users_id = localStorage.getItem('user_id');
-              return [{status: res.status, json: res}];
+              return responce_data;
             } else if (res.status === 5300) {
               // this._nav.navigate(['/login']);
     
               // localStorage.setItem('conformation', '1');
               // console.log('ok submited 200');
-              return [{status: res.status, json: res}];
+              // return responce_data;
             } else {
               // console.log('ok');
             }

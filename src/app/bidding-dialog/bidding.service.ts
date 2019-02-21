@@ -76,6 +76,53 @@ export class BiddingService {
       }
     });
   }
+  offernow(amount, id) {
+    // console.log(bid_amount);
+    // console.log(bid_id);
+
+    const headers = new Headers();
+    if (isPlatformBrowser(this.platformId)) {
+      headers.append('Authorization', 'JWT ' + localStorage.getItem('Authorization'));
+    }
+    headers.append('Content-Type', 'application/json');
+    return this._http2.post('http://192.168.30.132:3000/courses/sendingOfferonCourse/',
+      {
+        'offer_price': amount,
+        'course_id': id,
+      }, {headers : headers}).map((res: Response) => {
+      if (res) {
+        // console.log('1');
+        if (res.status === 201 || res.status === 200 || res.status === 203) {
+          const responce_data = res.json();
+         
+          return responce_data;
+        } 
+      }
+    }).catch((error: any) => {
+      // alert(error);
+      if (error.status === 403) {
+        // console.log('ok not submited submit 404');
+        // localStorage.setItem('error', '1');
+        return Observable.throw(error);
+      } else if (error.status === 400) {
+        //    this._nav.navigate(['/pages/accident']);
+        // console.log('ok not submited submit 400');
+        // localStorage.setItem('error', '1');
+        return Observable.throw(new Error(error.status));
+      } 
+      else if (error.status === 404) {
+       
+        //    this._nav.navigate(['/pages/accident']);
+        // console.log('ok not submited submit 400');
+        // localStorage.setItem('error', '1');
+        return Observable.throw(new Error(error.status));
+      } else {
+        //  this._nav.navigate(['/pages/accident']);
+        // console.log('ok not submited submit error');
+        return Observable.throw(new Error(error.status));
+      }
+    });
+  }
 
   get_bids(BidId) {
     return this._http2.get(Config.api + 'courses/bidhistory/' + BidId + '/').map((response: Response) => response.json());

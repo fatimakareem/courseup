@@ -10,11 +10,12 @@ import { GlobalService } from '../global.service';
 import { WinbidDialogComponent } from '../winbid-dialog/winbid-dialog.component';
 
 @Component({
-  selector: 'app-winbid-user',
-  templateUrl: './winbid-user.component.html',
-  styleUrls: ['./winbid-user.component.scss']
+  selector: 'app-accept-offer-activity',
+  templateUrl: './accept-offer-activity.component.html',
+  styleUrls: ['./accept-offer-activity.component.scss']
 })
-export class WinbidUserComponent implements OnInit {
+export class AcceptOfferActivityComponent implements OnInit {
+
   public response: any = [];
   public res: any = [];
   public check: any = [];
@@ -32,15 +33,15 @@ export class WinbidUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.GetBidUser();
+    this.Getacceptoffer();
 
   }
 
-  GetBidUser() {
-    this.obj.Biduser().subscribe(data => {
+  Getacceptoffer() {
+    this.obj.accept_offer().subscribe(data => {
 
-      this.response = data['Win List'];
-      this.res = data['Lose List'];
+      this.response = data
+     
 
     })
 
