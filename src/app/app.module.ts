@@ -132,7 +132,7 @@ import { WinbidDialogComponent } from './winbid-dialog/winbid-dialog.component';
 import { AddCourseDialogComponent } from './upload-courses/upload-courses.component';
 import { BuynowDialogComponent } from './buynow-dialog/buynow-dialog.component';
 import { AcceptOfferDialogComponent } from './accept-offer-dialog/accept-offer-dialog.component';
-import { AcceptOfferActivityComponent } from './accept-offer-activity/accept-offer-activity.component';
+import { OfferPayoutDialogComponent } from './offer-payout-dialog/offer-payout-dialog.component';
 
 let config = new AuthServiceConfig([
   {
@@ -164,7 +164,8 @@ export function provideConfig() {
     BiddingDialogComponent,
     BuynowDialogComponent,
     AcceptOfferDialogComponent,
-    AcceptOfferActivityComponent,
+    OfferPayoutDialogComponent,
+    
 
   ],
 
@@ -222,7 +223,7 @@ export function provideConfig() {
     MatToolbarModule
   ],
   entryComponents: [
-    ChatComponent, WinbidDialogComponent, BuynowDialogComponent, BiddingDialogComponent,AcceptOfferDialogComponent
+    ChatComponent, WinbidDialogComponent, BuynowDialogComponent, BiddingDialogComponent,AcceptOfferDialogComponent,OfferPayoutDialogComponent
   ],
 
   providers: [

@@ -7,7 +7,7 @@ import { RecentlyViewedCoursesComponent } from '../courses-all/recently-viewed-c
 import { MatDialog } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GlobalService } from '../global.service';
-import { WinbidDialogComponent } from '../winbid-dialog/winbid-dialog.component';
+import { OfferPayoutDialogComponent } from '../offer-payout-dialog/offer-payout-dialog.component';
 
 @Component({
   selector: 'app-accept-offer-activity',
@@ -51,7 +51,7 @@ export class AcceptOfferActivityComponent implements OnInit {
     // alert(course_id);
 
     if (this.Logedin === '1') {
-      const dialogRef = this.dialog.open(WinbidDialogComponent, {
+      const dialogRef = this.dialog.open(OfferPayoutDialogComponent, {
         width: '500px',
         data: {
           course_id: course_id,
