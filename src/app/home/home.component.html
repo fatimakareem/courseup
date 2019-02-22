@@ -243,8 +243,8 @@
                                         
 
                                         <button type="button" class="btn btn1 bid"
-                                        *ngIf="bid_data?.course?.course.accept_offer ==true"
-                                        (click)="AcceptDialog(bid_data?.course?.course.id)">Accept Offer </button>
+                                        *ngIf="data?.course?.accept_offer ==true"
+                                        (click)="AcceptDialog(data?.course?.id)">Accept Offer </button>
                                     
                                     </div>
                             </li>
@@ -344,8 +344,8 @@
                                         
                                         
                                         <button type="button" class="btn btn1 bid"
-                                        *ngIf="bid_data?.course?.course.accept_offer ==true"
-                                        (click)="AcceptDialog(bid_data?.course?.course.id)">Accept Offer </button>
+                                        *ngIf="data?.course?.accept_offer ==true"
+                                        (click)="AcceptDialog(data?.course?.id)">Accept Offer </button>
 
 
                                          </div>
@@ -448,8 +448,8 @@
                                         type="button" class="btn btn1 bid"
                                         (click)="AcceptDialog(bid_data?.course?.id)"><i class="fa fa-gavel"></i> Bid
                                         Now</button> <button type="button" class="btn btn1 bid"
-                                        *ngIf="bid_data?.course?.course.accept_offer ==true"
-                                        (click)="AcceptDialog(bid_data?.course?.course.id)">Accept Offer </button> </div>
+                                        *ngIf="bid_data?.course?.accept_offer ==true"
+                                        (click)="AcceptDialog(bid_data?.course?.id)">Accept Offer </button> </div>
                             </li>
                         </ngx-slick>
                     </div>
