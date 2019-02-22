@@ -115,6 +115,12 @@
                                             ${{bid_data?.course?.course.actual_price}}</div>
                                         <div class="pull-right linethrough"
                                             *ngIf="bid_data?.course?.course.discounted_price<=0"> Free </div>
+
+                                            <button type="button" class="btn btn1 bid"
+                                            *ngIf="bid_data?.course?.course.actual_price!=0"
+                                            (click)="buyNowClick(i, bid_data?.course?.course.id)">Buy Now </button>
+
+
                                     </div>
                                     <div class="row"> <a
                                             routerLink="/user-profile/{{bid_data?.course?.course?.user_id?.id}}"
@@ -140,9 +146,7 @@
                                                 class="far fa-heart"></i></div>
                                     </a> <button type="button" class="btn btn1 bid"
                                         (click)="openDialog2(bid_data?.course?.id)"><i class="fa fa-gavel"></i> Bid Now
-                                    </button> <button type="button" class="btn btn1 bid"
-                                        *ngIf="bid_data?.course?.course.actual_price!=0"
-                                        (click)="buyNowClick(i, bid_data?.course?.course.id)">Buy Now </button>
+                                    </button> 
                                         <button type="button" class="btn btn1 bid"
                                         *ngIf="bid_data?.course?.course.accept_offer ==true"
                                         (click)="AcceptDialog(bid_data?.course?.course.id)">Accept Offer </button> </div>
@@ -291,6 +295,15 @@
                                         <div class="pull-right" *ngIf="data?.course?.actual_price!=0">
                                             {{data?.course?.actual_price | currency:'USD'}}</div>
                                         <div class="pull-right" *ngIf="data?.course?.actual_price<=0"> Free</div>
+
+
+
+<a
+                                        *ngIf="data?.course?.actual_price>0" (click)="buyNowClick(i, data?.course?.id)"
+                                        type="button" class="btn btn1">Buy Now</a>
+
+
+
                                     </div>
                                     <div class="row"> <a routerLink="/user-profile/{{data?.course?.user_id?.id}}"
                                             *ngIf="data?.course?.user_id.first_name && data?.course?.user_id.last_name"
@@ -309,9 +322,15 @@
                                             (click)="onclick(i, data?.course?.id)"><i class="far fa-heart"></i></div>
                                     </a> <a *ngIf="data?.course?.actual_price!=0" class="wishlist material-icons"
                                         title="Add to Cart"
-                                        (click)="openDialog3(i, data?.course?.id)">add_shopping_cart</a> <a
-                                        *ngIf="data?.course?.actual_price>0" (click)="buyNowClick(i, data?.course?.id)"
-                                        type="button" class="btn btn1">Buy Now</a> <a
+                                        (click)="openDialog3(i, data?.course?.id)">add_shopping_cart</a>
+                                        
+                                        
+                                        <button type="button" class="btn btn1 bid"
+                                        *ngIf="bid_data?.course?.course.accept_offer ==true"
+                                        (click)="AcceptDialog(bid_data?.course?.course.id)">Accept Offer </button>
+
+
+                                        <a
                                         *ngIf="data?.course?.actual_price<=0"
                                         (click)="enrollCourse(i, data?.course?.id)" type="button"
                                         class="btn btn1">Enroll Now</a> </div>
