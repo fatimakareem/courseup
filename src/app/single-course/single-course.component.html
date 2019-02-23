@@ -62,7 +62,7 @@
                                 <div *ngIf="this.Chaptersloaded && total !=0 && route_instructor">
                                     <div class="totallectures-bar"> <span>{{duration}}</span> <span
                                             class="margin-left-25"> Total Lectures{{totallectures}}</span> <span
-                                            class="pull-right"> Total Chapters{{total}}</span> </div>
+                                            class="pull-right margin-r-10px"> Total Chapters{{total}}</span> </div>
                                     <div class="fancy-collapse-panel"> <span *ngIf="AllChapters.length>0">
                                             <div *ngFor="let chapter of AllChapters; let i=index">
                                                 <div class="panel-group" id="accordion" role="tablist"
@@ -84,18 +84,18 @@
                                                         <div id="collapse{{chapter.chapters.id}}"
                                                             class="panel-collapse collapse" role="tabpanel"
                                                             aria-labelledby="headingOne">
-                                                            <div class="panel-body"> <button mat-raised-button
-                                                                    color="primary" *ngIf="route_instructor"
+                                                            <div class="panel-body"> <button
+                                                                    color="primary" class="btn-file" *ngIf="route_instructor"
                                                                     (click)="openDialog2(chapter.chapters.id, chapter.chapters.video)">
                                                                     Add Video</button> <i *ngIf="route_instructor"
-                                                                    class="fa fa-trash-o fa-2x delete-icon"
+                                                                    class="fa fa-trash delete-icon"
                                                                     (click)="deletdeChapter(i, chapter?.chapters.id)"
                                                                     data-toggle="tooltip" title="Delete Chapter"></i> <i
                                                                     *ngIf="route_instructor"
-                                                                    class="fa fa-edit fa-2x delete-icon"
+                                                                    class="fa fa-edit  delete-icon"
                                                                     (click)="openEditChapterDialog(i, chapter.chapters.id)"
                                                                     title="Edit Chapter"></i>
-                                                                <table class="table table-hover" *ngIf="videos"> <br>
+                                                                <table class="table table-hover margin-0" *ngIf="videos"> <br>
                                                                     <tbody>
                                                                         <tr *ngFor="let video of videos; let j=index">
                                                                             <td
