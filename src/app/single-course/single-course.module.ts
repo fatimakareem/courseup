@@ -33,6 +33,7 @@ import {VideoShowDialogComponent} from "./video-show-dialog/video-show-dialog.co
 import {AddReviewDialogComponent} from "./add-review-dialog/add-review-dialog.component";
 // import {NgbModule, NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 import {RatingModule} from "ng2-rating";
+import { CKEditorModule } from 'ng2-ckeditor';
 
 
 const singleCourseRoutes: Routes = [
@@ -75,7 +76,7 @@ const singleCourseRoutes: Routes = [
     VgControlsModule,
     RouterModule.forChild(singleCourseRoutes),
     LoaderModule,
-    RatingModule
+    RatingModule,CKEditorModule
 
     // NgbModule
   ],

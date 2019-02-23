@@ -266,7 +266,7 @@ export class SingleCourseService {
       {
         'course': course_id,
         'about_course': about_course,
-        'language': language,
+        'language': 'english',
         'lifetimeaccess': true,
         'description': description,
         // 'requirement': requirement,
