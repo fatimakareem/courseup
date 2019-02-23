@@ -539,6 +539,9 @@
                                         title="Add to Cart"
                                         (click)="openDialog3(i, data?.course?.id)">add_shopping_cart</a> 
                                         
+                                        <button type="button" class="btn btn1 bid"
+                                        *ngIf="bid_data?.course?.accept_offer ==true"
+                                        (click)="AcceptDialog(bid_data?.course?.id)">Accept Offer </button>
                                     </div>
                             </li>
                         </ngx-slick>
@@ -629,6 +632,9 @@
                                         title="Add to Cart"
                                         (click)="openDialog3(i, data?.course?.id)">add_shopping_cart</a>
                                          
+                                        <button type="button" class="btn btn1 bid"
+                                        *ngIf="bid_data?.course?.accept_offer ==true"
+                                        (click)="AcceptDialog(bid_data?.course?.id)">Accept Offer </button>
                                      </div>
                             </li>
                         </ngx-slick>
@@ -718,6 +724,14 @@
                                     </a> <a *ngIf="data?.course?.actual_price!=0" class="wishlist material-icons"
                                         title="Add to Cart"
                                         (click)="openDialog3(i, data?.course?.id)">add_shopping_cart</a> 
+
+
+                                        <button type="button" class="btn btn1 bid"
+                                        *ngIf="bid_data?.course?.accept_offer ==true"
+                                        (click)="AcceptDialog(bid_data?.course?.id)">Accept Offer </button>
+
+
+
                                          </div>
                             </li>
                         </ngx-slick>
@@ -809,7 +823,14 @@
                                             </div>
                                         </a> <a *ngIf="data?.course?.actual_price!=0" class="wishlist material-icons"
                                             title="Add to Cart"
-                                            (click)="openDialog3(i, data?.course?.id)">add_shopping_cart</a>  </div>
+                                            (click)="openDialog3(i, data?.course?.id)">add_shopping_cart</a> 
+                                        
+                                            <button type="button" class="btn btn1 bid"
+                                            *ngIf="bid_data?.course?.accept_offer ==true"
+                                            (click)="AcceptDialog(bid_data?.course?.id)">Accept Offer </button>
+                                        
+                                        
+                                        </div>
                                 </li>
                             </ngx-slick>
                         </div>
