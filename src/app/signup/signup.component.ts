@@ -54,6 +54,12 @@ export class SignUpComponent implements OnInit {
     Validators.minLength(8),
     Validators.maxLength(30)
   ]);
+  confirmPasswordFormControl= new FormControl('', [
+    Validators.required,
+    Validators.pattern(this.password_regex),
+    Validators.minLength(8),
+    Validators.maxLength(30)
+  ]);
 
   captchaFormControl = new FormControl('', [
     Validators.required]);
