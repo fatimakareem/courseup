@@ -262,7 +262,7 @@ export class SingleCourseService {
       headers.append('Authorization', 'JWT ' + localStorage.getItem('Authorization'));
     }
     headers.append('Content-Type', 'application/json');
-    return this._http2.post(Config.api + 'courses/overviewpost/',
+    return this._http2.post('http://192.168.29.132:5000/courses/overviewpost/',
       {
         'course': course_id,
         'about_course': about_course,

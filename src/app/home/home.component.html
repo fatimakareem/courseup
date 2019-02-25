@@ -148,8 +148,8 @@
                                         (click)="openDialog2(bid_data?.course?.id)"><i class="fa fa-gavel"></i> Bid Now
                                     </button> 
                                         <button type="button" class="btn btn1 bid"
-                                        *ngIf="bid_data?.course?.course.accept_offer ==true"
-                                        (click)="AcceptDialog(bid_data?.course?.course.id)">Accept Offer </button> </div>
+                                        *ngIf="bid_data?.course?.accept_offer ==true"
+                                        (click)="AcceptDialog(bid_data?.course?.id)">Accept Offer </button> </div>
                             </li>
                         </ngx-slick>
                     </div>
@@ -540,8 +540,8 @@
                                         (click)="openDialog3(i, data?.course?.id)">add_shopping_cart</a> 
                                         
                                         <button type="button" class="btn btn1 bid"
-                                        *ngIf="bid_data?.course?.accept_offer ==true"
-                                        (click)="AcceptDialog(bid_data?.course?.id)">Accept Offer </button>
+                                        *ngIf="data?.course?.accept_offer ==true"
+                                        (click)="AcceptDialog(data?.course?.id)">Accept Offer </button>
                                     </div>
                             </li>
                         </ngx-slick>
@@ -633,8 +633,8 @@
                                         (click)="openDialog3(i, data?.course?.id)">add_shopping_cart</a>
                                          
                                         <button type="button" class="btn btn1 bid"
-                                        *ngIf="bid_data?.course?.accept_offer ==true"
-                                        (click)="AcceptDialog(bid_data?.course?.id)">Accept Offer </button>
+                                        *ngIf="data?.course?.accept_offer ==true"
+                                        (click)="AcceptDialog(data?.course?.id)">Accept Offer </button>
                                      </div>
                             </li>
                         </ngx-slick>
@@ -727,8 +727,8 @@
 
 
                                         <button type="button" class="btn btn1 bid"
-                                        *ngIf="bid_data?.course?.accept_offer ==true"
-                                        (click)="AcceptDialog(bid_data?.course?.id)">Accept Offer </button>
+                                        *ngIf="data?.course?.accept_offer ==true"
+                                        (click)="AcceptDialog(data?.course?.id)">Accept Offer </button>
 
 
 
@@ -826,8 +826,8 @@
                                             (click)="openDialog3(i, data?.course?.id)">add_shopping_cart</a> 
                                         
                                             <button type="button" class="btn btn1 bid"
-                                            *ngIf="bid_data?.course?.accept_offer ==true"
-                                            (click)="AcceptDialog(bid_data?.course?.id)">Accept Offer </button>
+                                            *ngIf="data?.course?.accept_offer ==true"
+                                            (click)="AcceptDialog(data?.course?.id)">Accept Offer </button>
                                         
                                         
                                         </div>

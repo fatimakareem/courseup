@@ -39,7 +39,6 @@ const bidCoursesRoutes: Routes = [
   providers: [],
   exports: [CoursesOnBidComponent],
   entryComponents: [
-    // BiddingDialogComponent
   ]
 })
 
