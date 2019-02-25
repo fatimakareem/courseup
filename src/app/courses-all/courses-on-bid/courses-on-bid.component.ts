@@ -9,6 +9,7 @@ import {MatDialog} from '@angular/material';
 // import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 import {PagerService} from "../../paginator.service";
 import { BuynowDialogComponent } from '../../buynow-dialog/buynow-dialog.component';
+import { AcceptOfferDialogComponent } from '../../accept-offer-dialog/accept-offer-dialog.component';
 
 
 declare const $: any;
@@ -117,7 +118,24 @@ this.setPage(1);
     this.nav.navigate(['login']);
     }
   }
+  AcceptDialog(id): void {
+    if (this.Logedin == '1') {
+      const dialogRef = this.dialog.open(AcceptOfferDialogComponent, {
+        width: '500px',
+        data: { id: id }
+      });
+    } else {
+      swal({
+        type: 'error',
+        title: 'Authentication Required <br> Please Login or Signup first',
+        showConfirmButton: false,
+        width: '512px',
+        timer: 1500
+      });
+      this.nav.navigate(['login']);
+    }
 
+  }
    onclick(index, course_id) {
     if (this.Logedin === '1') {
       this.obj.add_wishlist(course_id).subscribe(
