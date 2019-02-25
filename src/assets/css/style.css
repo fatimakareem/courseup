@@ -8263,6 +8263,10 @@ blockquote p::before {
     padding: 20px 0 0
 }
 
+.min-height {
+    min-height: 140px !important;
+}
+
 @media only screen and (max-width:1480px) {
     .services-box-01 {
         padding-top: 40px
@@ -8681,6 +8685,9 @@ blockquote p::before {
 }
 
 @media only screen and (max-width:768px) {
+    .min-height {
+        min-height: 108px !important;
+    }
     .ml5 {
         font-size: 12px;
     }
@@ -9805,6 +9812,3 @@ blockquote p::before {
     }
 }
 
-.min-height {
-    min-height: 140px !important;
-}
