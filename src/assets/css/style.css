@@ -8048,7 +8048,8 @@ figcaption p i {
 
 .img-holder {
     height: 140px;
-    overflow: hidden
+    overflow: hidden;
+    border-radius: 5px;
 }
 
 .courses-div {
