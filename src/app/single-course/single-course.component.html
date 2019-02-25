@@ -156,19 +156,25 @@
                                                         [value]="language.value">{{language.viewValue}}</mat-option>
                                                 </mat-select>
                                             </mat-form-field>
-                                            <mat-form-field class="example-full-width mat-size"> <textarea rows="3"
+                                            <!-- <mat-form-field class="example-full-width mat-size">  -->
+                                                
+                                                    <ckeditor  [(ngModel)]="model.detail" name="detail" > 
+                                                            <ckbutton [name]="'saveButton'" [command]="'saveCmd'"  [icon]="'save.png'"
+                                                              [label]="'Save Document'" [toolbar]="'clipboard,1'">
+                                                            </ckbutton></ckeditor>
+                                                <!-- <textarea rows="3"
                                                     matInput #detail1 maxlength="5000"
                                                     placeholder="Enter Course details" [required]="detail" name="detail"
                                                     [(ngModel)]="model.detail" #detail="ngModel" required
-                                                    pattern="[a-zA-Z0-9 -_.]+?"> </textarea>
-                                                <mat-hint align="start"><strong>(Minimum Length 1000
+                                                    pattern="[a-zA-Z0-9 -_.]+?"> </textarea> -->
+                                                <!-- <mat-hint align="start"><strong>(Minimum Length 1000
                                                         characters)</strong> </mat-hint>
                                                 <mat-hint align="end">{{detail1.value.length}}/ 5000</mat-hint>
                                                 <mat-error *ngIf="detail.hasError('required')"> Course detail is
                                                     <strong>required</strong> </mat-error>
                                                 <mat-error *ngIf="detail.hasError('pattern')"> Please enter <strong>
                                                         valid </strong> details </mat-error>
-                                            </mat-form-field>
+                                            </mat-form-field> -->
                                         </div>
                                         <div class="footer text-right col-sm-12"> <button class="btn-file" type="submit"
                                                 id="submit" tabindex="2">Submit</button> </div>
