@@ -23,7 +23,7 @@
                                     <p><i class="fa fa-file-video-o"></i> 27.5 hours on-demand video</p>
                                     <p><i class="fa fa-book"></i> 7 Articles</p>
                                     <p><i class="fa fa-universal-access"></i> Full lifetime access</p>
-                                    <p class="fa fa-mobile-phone"> Access on mobile and TV</p>
+                                    <p><i class="fa fa-mobile-phone"></i> Access on mobile and TV</p>
                                     <p><i class="fa fa-bolt"></i> Assignments</p>
                                     <p><i class="fa fa-certificate"></i> Certificate of Completion</p>
                                 </figcaption>
@@ -48,11 +48,9 @@
                                     ${{bid_data?.course?.course.actual_price}}</div>
                                 <div class=" col-md-5 col-sm-5 col-lg-5 col-xs-5 linethrough"
                                     *ngIf="bid_data?.course?.course.discounted_price<=0"> Free </div>
-                                    <div class="col-md-5 col-sm-5 col-lg-5 col-xs-5">
-                                    <button type="button" class="btn btn1 bid margin-b-5"
-                                    *ngIf="bid_data?.course?.course.actual_price!=0"
-                                    (click)="buyNowClick(i, bid_data?.course?.course.id)">Buy Now</button>
-                                </div>
+                                <div class="col-md-5 col-sm-5 col-lg-5 col-xs-5"> <button type="button"
+                                        class="btn btn1 bid margin-b-5" *ngIf="bid_data?.course?.course.actual_price!=0"
+                                        (click)="buyNowClick(i, bid_data?.course?.course.id)">Buy Now</button> </div>
                             </div>
                             <div class="row"> <a routerLink="/user-profile/{{bid_data?.course?.course?.user_id?.id}}"
                                     *ngIf="bid_data?.course?.course.user_id.first_name && bid_data?.course?.course.user_id.last_name"
@@ -62,9 +60,6 @@
                                     ${{bid_data?.course?.course.discounted_price}}</div>
                                 <div *ngIf="bid_data?.course?.course.discounted_price<=0"
                                     class="col-md-3 col-sm-5 col-lg-3 col-xs-5 ">Free</div>
-                                    
-
-
                             </div>
                         </div>
                         <div class="product-list__item-info"> <a class="wishlist" title="Add to wishlist"
@@ -77,11 +72,9 @@
                                 <div *ngIf="bid_data?.course?.course.inWishList==false"
                                     (click)="onclick(i, bid_data?.course?.course?.id)"><i class="fa fa-heart-o"></i>
                                 </div>
-                            </a> <button
-                                type="button" class="btn btn1 bid" (click)="openDialog2(bid_data?.course?.course.id)"><i
-                                    class="fa fa-gavel"></i> Bid Now</button>
-                                    <button type="button" class="btn btn1 bid" (click)="AcceptDialog(bid_data?.course?.course.id)">Accept Offer </button> 
-                                </div>
+                            </a> <button type="button" class="btn btn1 bid"
+                                (click)="openDialog2(bid_data?.course?.course.id)"><i class="fa fa-gavel"></i> Bid
+                                Now</button><button type="button" class="btn btn1 bid" (click)="AcceptDialog(bid_data?.course?.course.id)">Accept Offer </button> </div>
                     </li>
                 </ul>
             </div>
