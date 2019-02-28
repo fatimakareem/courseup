@@ -20,6 +20,7 @@ import { CoursesService } from "../course/courses.service";
 import { MessagesService } from "../Messages.service";
 import { FollowUnfollowService } from "../Follow-Unfollow.service";
 // import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
+import { AcceptOfferDialogComponent } from '../accept-offer-dialog/accept-offer-dialog.component';
 
 declare const $: any;
 
@@ -40,6 +41,24 @@ export class SingleCourseComponent implements OnInit, OnDestroy {
     { value: 'Turkish', viewValue: 'Turkish' },
     { value: 'Arabic', viewValue: 'Arabic' }
   ];
+  AcceptDialog(id): void {
+    if (this.Logedin == '1') {
+      const dialogRef = this.dialog.open(AcceptOfferDialogComponent, {
+        width: '500px',
+        data: { id: id }
+      });
+    } else {
+      swal({
+        type: 'error',
+        title: 'Authentication Required <br> Please Login or Signup first',
+        showConfirmButton: false,
+        width: '512px',
+        timer: 1500
+      });
+      this.nav.navigate(['login']);
+    }
+
+  }
   public GlobalWishListCourses: any;
   public GlobalCartCourses: any = [];
   public alreadyInCartStatus: any;

@@ -282,6 +282,8 @@
                             <h4 class="price-deial">30-Day Money-Back Guarantee</h4>
                             <div class="sidebar-btn" *ngIf="my_vedio==false"> <button *ngIf="route_instructor<1"
                                     routerLink="/checkout" (click)="noPromo()" style="margin: 0" class="button"> Buy Now
+                                </button><br>
+                                <button *ngIf="SingleCourse.accept_offer==true" (click)="AcceptDialog(SingleCourse.id)" style="margin: 0" class="button"> Accept Offer
                                 </button>
                                 <ng-container *ngIf="SingleCourse.BidPrice>0"> <button *ngIf="route_instructor<1"
                                         style="margin: 10px 0 0" (click)="openBidDialog()" class="cartbutton"> Bid Now

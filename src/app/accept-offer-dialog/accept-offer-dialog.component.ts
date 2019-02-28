@@ -50,7 +50,7 @@ export class AcceptOfferDialogComponent implements OnInit {
       if (result.value) {
         this.obj.offernow(this.model.bid_amount, this.data.id).subscribe(
           data => {
-         if(data.message=="Your offer is already accepted"){
+         if(data.message=="Your offer is already accepted "){
           swal({
             type: 'error',
             title: 'Your offer is already accepted',

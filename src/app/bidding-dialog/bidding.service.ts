@@ -85,7 +85,7 @@ export class BiddingService {
       headers.append('Authorization', 'JWT ' + localStorage.getItem('Authorization'));
     }
     headers.append('Content-Type', 'application/json');
-    return this._http2.post('http://192.168.30.132:3000/courses/sendingOfferonCourse/',
+    return this._http2.post(Config.api +'courses/sendingOfferonCourse/',
       {
         'offer_price': amount,
         'course_id': id,
