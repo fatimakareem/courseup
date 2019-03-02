@@ -9,13 +9,13 @@ import {BiddingDialogComponent} from '../bidding-dialog/bidding-dialog.component
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatDialog,MatDialogRef} from '@angular/material';
 import { BuyNowService } from '../BuyNow.service';
-import { AddCartDialogComponent } from '../cart-dialog/add-cart-dialog.component';
 import {NgForm} from '@angular/forms';
 import {FormControl, NgModel, Validators, ReactiveFormsModule} from '@angular/forms';
 import {HeaderService} from '../header/header.service';
 import {SimpleGlobal} from "ng2-simple-global";
 import { BuynowDialogComponent } from '../buynow-dialog/buynow-dialog.component';
 import { AcceptOfferDialogComponent } from '../accept-offer-dialog/accept-offer-dialog.component';
+import {CourseCheckoutService} from "../course-checkout/course-checkout.service";
 
 // import { HomeSliderEidtDialogComponent } from './.component';
 declare const $: any;
@@ -60,7 +60,9 @@ export class HomeComponent implements OnInit, OnDestroy {
  constructor( @Inject(PLATFORM_ID) private platformId: Object, private obj: 
   HomeService,private obj_CoursesService: CoursesService,private nav: Router,
   private route: ActivatedRoute,private obj2: HeaderService, private buyNowService: BuyNowService,private dialog: MatDialog, private router: Router, 
-  private global: GlobalService,private glb_ser: SimpleGlobal) {
+  private global: GlobalService,private glb_ser: SimpleGlobal,  private obj3: CourseCheckoutService,) {
+   
+
     this.obj_CoursesService.get_all().subscribe(response => {
       this.data = response;
       // this.loaded = true;
@@ -168,48 +170,7 @@ this.obj2.get_categories().subscribe(response => {
         }
         $('.homeSlider').fadeIn(500).delay(200);
       });
-//    this.obj_CoursesService.get_bid_courses(this.page).subscribe(response => {
-//       this.BidCourses = response;
-//  console.log(this.BidCourses);
-//       // console.log(this.BidCourses);
 
-//       // this.loaded = true;
-
-//     this.slideConfig = {
-//           infinite: false,
-//           speed: 900,
-//           autoplay: true,
-//           slidesToShow: 5,
-//           slidesToScroll: 5,
-//           prevArrow: '<button class="leftRs">&lt;</button>',
-//           nextArrow: '<button class="rightRs">&lt;</button>',
-//           responsive: [
-//             {
-//               breakpoint: 1025,
-//               settings: {
-//                 slidesToShow: 4,
-//                 slidesToScroll: 4,
-//                 infinite: true
-//               }
-//             },
-//             {
-//               breakpoint: 769,
-//               settings: {
-//                 slidesToShow: 3,
-//                 slidesToScroll: 1
-//               }
-//             },
-//             {
-//               breakpoint: 480,
-//               settings: {
-//                 slidesToShow: 1,
-//                 slidesToScroll: 1
-//               }
-//             }
-//     ]};
-
-//     });
- 
  
     this.global.caseNumber$.subscribe(
       data => {
@@ -234,82 +195,6 @@ this.obj2.get_categories().subscribe(response => {
           }
         });
 
-
-
-        // this.obj_CoursesService.get_courses(1).subscribe(response => {
-        //   this.trendingNowCourses = response;
-        //   // this.loaded = true;
-        //   this.slideConfig = {
-        //     infinite: false,
-        //     speed: 900,
-        //     autoplay: true,
-        //     slidesToShow: 5,
-        //     slidesToScroll: 5,
-        //     prevArrow: '<button class="leftRs">&lt;</button>',
-        //     nextArrow: '<button class="rightRs">&lt;</button>',
-        //     responsive: [
-        //       {
-        //         breakpoint: 1025,
-        //         settings: {
-        //           slidesToShow: 4,
-        //           slidesToScroll: 4,
-        //           infinite: true
-        //         }
-        //       },
-        //       {
-        //         breakpoint: 769,
-        //         settings: {
-        //           slidesToShow: 3,
-        //           slidesToScroll: 1
-        //         }
-        //       },
-        //       {
-        //         breakpoint: 480,
-        //         settings: {
-        //           slidesToShow: 1,
-        //           slidesToScroll: 1
-        //         }
-        //       }
-        //     ]};
-        // });
-        // this.obj_CoursesService.get_top_rated_courses(1).subscribe(response => {
-        //   this.topRatedCourses = response;
-        //   // console.log("Top rated"+this.topRatedCourses['courses'].course[0]);
-        //   // this.loaded = true;
-        
-        //   this.slideConfig = {
-        //     infinite: false,
-        //     speed: 900,
-        //     autoplay: true,
-        //     slidesToShow: 5,
-        //     slidesToScroll: 5,
-        //     prevArrow: '<button class="leftRs">&lt;</button>',
-        //     nextArrow: '<button class="rightRs">&lt;</button>',
-        //     responsive: [
-        //       {
-        //         breakpoint: 1025,
-        //         settings: {
-        //           slidesToShow: 4,
-        //           slidesToScroll: 4,
-        //           infinite: true
-        //         }
-        //       },
-        //       {
-        //         breakpoint: 769,
-        //         settings: {
-        //           slidesToShow: 3,
-        //           slidesToScroll: 1
-        //         }
-        //       },
-        //       {
-        //         breakpoint: 480,
-        //         settings: {
-        //           slidesToShow: 1,
-        //           slidesToScroll: 1
-        //         }
-        //       }
-        //     ]};
-        // });
         this.obj_CoursesService.get_recommendcourse(this.page).subscribe(
           data => {
             this.Courses = data;
@@ -416,43 +301,12 @@ this.obj2.get_categories().subscribe(response => {
           
           });
   }
-
+  upperhome;
   ngOnInit() {
-    // Start Slider
-    
-    // this.obj.get_slider_content().subscribe(response => {
-    //   this.SliderContent = response;
-    //   this.loaded = true;
-    // });
-
-
-
-    // End Slider
-
-    // Start bid_courses slider 
-  
-     // End bid_courses slider 
-// start trending-courses slider
-
-
-
-// End trending-courses slider
-
-// Start app-top-rated-courses
-
-
-// End app-top-rated-courses
-
-//  start recommended-courses
-
-
-
-
-// End recommended-courses
-
-// Start recently-viewed-courses
-
-// End recently-viewed-courses
+    this.obj.get_upperhome_content().subscribe(response => {
+      this.upperhome = response;
+   
+    });
 if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem('home', 'true');
     }
@@ -559,28 +413,124 @@ if (isPlatformBrowser(this.platformId)) {
     this.nav.navigate(['login']);
     }
   }
-
-  openDialog3(index, course_id): void {
+  public emptyCart: boolean;
+  public wishlistCourses: any=[];
+  public emptyWishlist: boolean;
+  public GlobalCartCourses: any = [];
+  totalcarts;
+  getcart(){
     if (this.Logedin === '1') {
-      const dialogRef = this.dialog.open(AddCartDialogComponent, {
-        width: '500px',
-        data: { course_id: course_id,
-          // CourseDetail: this.Courses
+      // alert('calling Checkout Courses');
+      this.obj3.get_checkout_courses().subscribe(response => {
+        if(response.hasOwnProperty("status")) {
+          this.emptyCart = response.status;
+          this.GlobalCartCourses = [];
+
+          // alert('Checkout Courses are Empty')
+        }
+        else {
+          this.GlobalCartCourses = response;
+          this.totalcarts=response.totalItems
+          this.global.getGolbalCartCourses(this.GlobalCartCourses);
+          this.emptyCart = false;
         }
       });
+    }
+  }
+  openDialog3(index, course_id): void {
+    if (this.Logedin === '1') {
+      this.obj_CoursesService.add_to_cart_no_promo(course_id).subscribe(
+        data => {
+          // console.log(data[0]['json'].json());
+          if(data[0]['json'].json().hasOwnProperty("status")) {
+         
+            swal({
+              type: 'warning',
+              title: 'Oops! <br> This course already exists in your cart!',
+              showConfirmButton: false,
+              width: '512px',
+              timer: 2500
+            })
+          
+          } else {
+            this.wishlistCourses.splice(this.wishlistCourses.indexOf(this.wishlistCourses[course_id]),1);
+            console.log(data[0]['json'].json())
+            this.getcart()
+            swal({
+              type: 'success',
+              title: 'Success <br> Course Added to Cart!',
+              showConfirmButton: false,
+              width: '512px',
+              timer: 2500
+            })
+         
+            this.obj_CoursesService.removeFromWishlist(course_id).subscribe(
+              data => {
+                console.log(data);
+                // this.wishlistCourses.splice(this.wishlistCourses.indexOf(this.wishlistCourses[index]),1);
+                // console.log(this.wishlistCourses);
+                // if (this.Logedin === '1') {
+                this.obj_CoursesService.get_wishlist_courses(1).subscribe(response => {
+                  if(!response.status){
+  
+                  }
+                  if(response.hasOwnProperty("status")) {
+                    this.wishlistCourses = [];
+                    this.emptyWishlist = true;
+                  }
+                  else {
+                    this.wishlistCourses = response;
+                    // alert('total Wishlist Courses' + this.wishlistCourses.length);
+                    this.global.getGolbalWishListCourses(this.wishlistCourses);
+                    this.emptyWishlist = false;
+                  }
+  
+                });
+                // }
+              });
+          }
+  
+        },
+        error => {
+          // console.log(error);
+       
+            swal({
+              type: 'error',
+              title: 'Oops <br> Failed to add to Cart!',
+              showConfirmButton: false,
+              width: '512px',
+              timer: 2500
+            })
+          }
+       
+      );
+  
     } else {
-     
-        swal({
-          type: 'error',
-          title: 'Authentication Required <br> Please Login or Signup first',
-          showConfirmButton: false,
-          width: '512px',
-          timer: 1500
-        });
-      
+      swal({
+        type: 'error',
+        title: 'Authentication Required <br> Please Login or Signup first',
+        showConfirmButton: false,
+        width: '512px',
+        timer: 1500
+      });
       this.nav.navigate(['login']);
     }
   }
+  // openDialog3(index, course_id): void {
+  //   if (this.Logedin === '1') {
+  //     const dialogRef = this.dialog.open(AddCartDialogComponent, {
+  //       width: '500px',
+  //       data: { course_id: course_id,
+  //         // CourseDetail: this.Courses
+  //       }
+  //     });
+  //   } else {
+     
+       
+      
+  //     this.nav.navigate(['login']);
+  //   }
+  // }
   goToTopRatedCourses() {
     this.nav.navigate(['courses/top-rated']);
   }
@@ -630,21 +580,33 @@ if (isPlatformBrowser(this.platformId)) {
       timer: 3000,
     });
   }
-  onclick(index, course_id) {
+  onclick(index, course_id,inwhishlist) {
+   
     if (this.Logedin === '1') {
-      this.obj_CoursesService.add_wishlist(course_id).subscribe(
-        data => {
-          console.log(data);
-          if(data[0]['json'].json().hasOwnProperty("status")) {
-            HomeComponent.AlreadyInWishlistError();
+      if(inwhishlist=='true'){
+        HomeComponent.wishlistSuccess();
+      }else{
+
+        this.obj_CoursesService.add_wishlist(course_id).subscribe(
+          data => {
+            console.log(data);
+            if(data[0]['json'].json().hasOwnProperty("status")) {
+              swal({
+                type: 'warning',
+                title: 'Oops! <br> This course already exists in your courses!',
+                showConfirmButton: false,
+                width: '512px',
+                timer: 2500
+              })
+            }
+            else {
+              this.GlobalWishListCourses.push(data[0]['json'].json());
+              this.global.getGolbalWishListCourses(this.GlobalWishListCourses);
+              HomeComponent.wishlistSuccess();
+            }
           }
-          else {
-            this.GlobalWishListCourses.push(data[0]['json'].json());
-            this.global.getGolbalWishListCourses(this.GlobalWishListCourses);
-            HomeComponent.wishlistSuccess();
-          }
-        }
-      );
+        );
+      }
     }
     else {
       HomeComponent.Authenticat();

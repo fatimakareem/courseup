@@ -14,7 +14,6 @@ import {GlobalService} from '../global.service';
 import swal from 'sweetalert2';
 import {HeaderService} from '../header/header.service';
 import {SimpleGlobal} from 'ng2-simple-global';
-import {AddCartDialogComponent} from '../cart-dialog/add-cart-dialog.component';
 
 import {Observable} from 'rxjs/Observable';
 import {startWith} from 'rxjs/operators/startWith';

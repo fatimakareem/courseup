@@ -14,7 +14,6 @@ import { GlobalService } from '../global.service';
 import swal from 'sweetalert2';
 import { HeaderService } from '../header/header.service';
 import { SimpleGlobal } from 'ng2-simple-global';
-import { AddCartDialogComponent } from '../cart-dialog/add-cart-dialog.component';
 import { PagerService } from '../paginator.service';
 
 import { Observable } from 'rxjs/Observable';
@@ -400,7 +399,27 @@ checked12(event) {
     }
   }
 
+  public emptyCart: boolean;
+  totalcarts;
+  getcart(){
+    
+      // alert('calling Checkout Courses');
+      this.obj.get_checkout_courses().subscribe(response => {
+        if(response.hasOwnProperty("status")) {
+          this.emptyCart = response.status;
+          this.GlobalCartCourses = [];
 
+          // alert('Checkout Courses are Empty')
+        }
+        else {
+          this.GlobalCartCourses = response;
+          this.totalcarts=response.totalItems
+          this.global.getGolbalCartCourses(this.GlobalCartCourses);
+          this.emptyCart = false;
+        }
+      });
+   
+  }
   buyNow(index, course_id): void {
     if (this.Logedin === '1') {
       this.obj.add_to_cart_no_promo(course_id).subscribe(
@@ -413,7 +432,7 @@ checked12(event) {
           }
           else {
             this.GlobalCartCourses.push(data[0]['json'].json());
-            this.global.getGolbalCartCourses(this.GlobalCartCourses);
+           this.getcart();
             CourseComponent.buySuccess();
             this.nav.navigate(['/checkout']);
           }
@@ -464,21 +483,95 @@ checked12(event) {
   goToTopRatedCourses() {
     this.nav.navigate(['courses/top-rated']);
   }
-
+  public wishlistCourses: any=[];
+  public emptyWishlist: boolean;
   openDialog2(index, course_id): void {
     if (this.Logedin === '1') {
-      const dialogRef = this.dialog.open(AddCartDialogComponent, {
-        width: '500px',
-        data: {
-          course_id: course_id,
-          // CourseDetail: this.Courses
-        }
-      });
+      this.obj.add_to_cart_no_promo(course_id).subscribe(
+        data => {
+          // console.log(data[0]['json'].json());
+          if(data[0]['json'].json().hasOwnProperty("status")) {
+         
+            swal({
+              type: 'warning',
+              title: 'Oops! <br> This course already exists in your cart!',
+              showConfirmButton: false,
+              width: '512px',
+              timer: 2500
+            })
+          
+          } else {
+            this.wishlistCourses.splice(this.wishlistCourses.indexOf(this.wishlistCourses[index]),1);
+            this.GlobalCartCourses.push(data[0]['json'].json());
+         this.getcart();
+            swal({
+              type: 'success',
+              title: 'Success <br> Course Added to Cart!',
+              showConfirmButton: false,
+              width: '512px',
+              timer: 2500
+            })
+         
+            this.obj.removeFromWishlist(course_id).subscribe(
+              data => {
+                console.log(data);
+                // this.wishlistCourses.splice(this.wishlistCourses.indexOf(this.wishlistCourses[index]),1);
+                // console.log(this.wishlistCourses);
+                // if (this.Logedin === '1') {
+                this.obj.get_wishlist_courses(1).subscribe(response => {
+                  if(!response.status){
+  
+                  }
+                  if(response.hasOwnProperty("status")) {
+                    this.wishlistCourses = [];
+                    this.emptyWishlist = true;
+                  }
+                  else {
+                    this.wishlistCourses = response;
+                    // alert('total Wishlist Courses' + this.wishlistCourses.length);
+                    this.global.getGolbalWishListCourses(this.wishlistCourses);
+                    this.emptyWishlist = false;
+                  }
+  
+                });
+                // }
+              });
+          }
+  
+        },
+        error => {
+          // console.log(error);
+       
+            swal({
+              type: 'error',
+              title: 'Oops <br> Failed to add to Cart!',
+              showConfirmButton: false,
+              width: '512px',
+              timer: 2500
+            })
+          }
+       
+      );
+  
     } else {
       CourseComponent.Authenticat();
       this.nav.navigate(['login']);
     }
   }
+  // openDialog2(index, course_id): void {
+  //   if (this.Logedin === '1') {
+  //     const dialogRef = this.dialog.open(AddCartDialogComponent, {
+  //       width: '500px',
+  //       data: {
+  //         course_id: course_id,
+  //         // CourseDetail: this.Courses
+  //       }
+  //     });
+  //   } else {
+  //     CourseComponent.Authenticat();
+  //     this.nav.navigate(['login']);
+  //   }
+  // }
 
   static Authenticat() {
     swal({

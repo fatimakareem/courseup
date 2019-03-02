@@ -4,11 +4,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NormalLayoutComponent } from "./layouts/normal-layout.component";
+import { UserProfileComponent } from './layouts/user-profile/user-profile.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-// import {ModuleMapLoaderModule} from '@nguniversal/module-map-ngfactory-loader';
-// import { RecaptchaModule } from 'ng-recaptcha';
 import { BiddingDialogComponent } from "./bidding-dialog/bidding-dialog.component";
 import { SignUpservice } from './signup/signup.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -49,16 +50,12 @@ import {
 } from '@angular/material';
 
 import { MatTableModule } from '@angular/material/table';
-
-
 import { Routing, AppRoutingProvider } from './app.routing';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { AddCartDialogModule } from "./cart-dialog/add-cart-dialog.module";
+// import { NgxPaginationModule } from 'ngx-pagination';
 import { PaymentmethodsService } from './paymentmethods/paymentmethods.service';
 import { RecapchaService } from './recapcha/recapcha.service';
-import { UserProfileComponent } from './layouts/user-profile/user-profile.component';
 import { AuthGuard } from './auth-guard/auth-guard.service';
 import { LoginService } from './login/login.service';
 import { LogoutService } from './logout/logout.service';
@@ -68,24 +65,23 @@ import { ChangePasswordService } from './change-password/change-password.service
 
 import { AgmCoreModule } from '@agm/core';
 
-import { ChangePasswordComponent } from './change-password/change-password.component';
 import { SingleCourseService } from './single-course/single-course.service';
 import { GlobalService } from './global.service';
 import { PartnershipService } from './partnership/partnership.service';
 
-import { ImageCropperModule } from 'ngx-image-cropper';
+// import { ImageCropperModule } from 'ngx-image-cropper';
 
-import { NguiDatetimePickerModule } from '@ngui/datetime-picker';
+// import { NguiDatetimePickerModule } from '@ngui/datetime-picker';
 import { SlickModule } from 'ngx-slick';
 
 import { RatingModule } from "ng2-rating";
 
 
 // Importing Video Player Files
-import { VgCoreModule } from 'videogular2/core';
-import { VgControlsModule } from 'videogular2/controls';
-import { VgOverlayPlayModule } from 'videogular2/overlay-play';
-import { VgBufferingModule } from 'videogular2/buffering';
+// import { VgCoreModule } from 'videogular2/core';
+// import { VgControlsModule } from 'videogular2/controls';
+// import { VgOverlayPlayModule } from 'videogular2/overlay-play';
+// import { VgBufferingModule } from 'videogular2/buffering';
 
 
 import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
@@ -186,41 +182,40 @@ export function provideConfig() {
     HttpModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatStepperModule,
-    MatTableModule,
+    // MatStepperModule,
+    // MatTableModule,
     // MatInput,
-    MatButtonModule,
+    // MatButtonModule,
     MatCheckboxModule,
     MatCardModule,
     MatTabsModule,
-    MatExpansionModule,
+    // MatExpansionModule,
     MatDatepickerModule,
     MatFormFieldModule,
     MatSlideToggleModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatMenuModule,
-    MatPaginatorModule,
-    MatTableModule,
-    MatTooltipModule,
-    MatIconModule,
-    MatStepperModule,
-    MatNativeDateModule,
-    NgxPaginationModule,
+    // MatMenuModule,
+    // MatPaginatorModule,
+    // MatTableModule,
+    // MatTooltipModule,
+    // MatIconModule,
+    // MatStepperModule,
+    // MatNativeDateModule,
+    // NgxPaginationModule,
     // FilePickerModule,
     MatRadioModule,
     MatSelectModule,
-    ImageCropperModule,
-    NguiDatetimePickerModule,
+    // ImageCropperModule,
+    // NguiDatetimePickerModule,
 
-    VgCoreModule,
-    VgControlsModule,
-    VgOverlayPlayModule,
-    VgBufferingModule,
-    AddCartDialogModule,
+    // VgCoreModule,
+    // VgControlsModule,
+    // VgOverlayPlayModule,
+    // VgBufferingModule,
     LoaderModule,
-    MatSidenavModule,
-    MatToolbarModule
+    // MatSidenavModule,
+    // MatToolbarModule
   ],
   entryComponents: [
     ChatComponent, WinbidDialogComponent, BuynowDialogComponent, BiddingDialogComponent,AcceptOfferDialogComponent,OfferPayoutDialogComponent

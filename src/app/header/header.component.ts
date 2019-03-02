@@ -11,7 +11,6 @@ import {SimpleGlobal} from "ng2-simple-global";
 import {HomeService} from "../home/home.service";
 import {CoursesService} from "../course/courses.service";
 import {CourseCheckoutService} from "../course-checkout/course-checkout.service";
-import {AddCartDialogComponent} from "../cart-dialog/add-cart-dialog.component";
 import {MatDialog} from "@angular/material";
 import {HomeComponent} from '../home/home.component';
 import {CoursesOnBidComponent} from '../courses-all/courses-on-bid/courses-on-bid.component';
@@ -474,21 +473,101 @@ onClick() {
   private Suggestions(query: any, number: number) {
   }
 
+  
 
   openCartDialog(index, course_id): void {
-    // if (this.Logedin === '1') {
-      const dialogRef = this.dialog.open(AddCartDialogComponent, {
-        width: '500px',
-        data: { course_id: course_id,
-                index: index
-          // CourseDetail: this.Courses
-        }
+    if (this.Logedin === '1') {
+      this.course.add_to_cart_no_promo(course_id).subscribe(
+        data => {
+          // console.log(data[0]['json'].json());
+          if(data[0]['json'].json().hasOwnProperty("status")) {
+         
+            swal({
+              type: 'warning',
+              title: 'Oops! <br> This course already exists in your cart!',
+              showConfirmButton: false,
+              width: '512px',
+              timer: 2500
+            })
+          
+          } else {
+            this.wishlistCourses.splice(this.wishlistCourses.indexOf(this.wishlistCourses[index]),1);
+            this.getcart();
+
+            swal({
+              type: 'success',
+              title: 'Success <br> Course Added to Cart!',
+              showConfirmButton: false,
+              width: '512px',
+              timer: 2500
+            })
+         
+            this.course.removeFromWishlist(course_id).subscribe(
+              data => {
+                console.log(data);
+                // this.wishlistCourses.splice(this.wishlistCourses.indexOf(this.wishlistCourses[index]),1);
+                // console.log(this.wishlistCourses);
+                // if (this.Logedin === '1') {
+                this.course.get_wishlist_courses(1).subscribe(response => {
+                  if(!response.status){
+  
+                  }
+                  if(response.hasOwnProperty("status")) {
+                    this.wishlistCourses = [];
+                    this.emptyWishlist = true;
+                  }
+                  else {
+                    this.wishlistCourses = response;
+                    // alert('total Wishlist Courses' + this.wishlistCourses.length);
+                    this.global.getGolbalWishListCourses(this.wishlistCourses);
+                    this.emptyWishlist = false;
+                  }
+  
+                });
+                // }
+              });
+          }
+  
+        },
+        error => {
+          // console.log(error);
+       
+            swal({
+              type: 'error',
+              title: 'Oops <br> Failed to add to Cart!',
+              showConfirmButton: false,
+              width: '512px',
+              timer: 2500
+            })
+          }
+       
+      );
+  
+    } else {
+      swal({
+        type: 'error',
+        title: 'Authentication Required <br> Please Login or Signup first',
+        showConfirmButton: false,
+        width: '512px',
+        timer: 1500
       });
-    // } else {
-    //   this.Authenticat();
-    //   this.nav.navigate(['login']);
-    // }
+      this.nav.navigate(['login']);
+    }
   }
+  // openCartDialog(index, course_id): void {
+  //   // if (this.Logedin === '1') {
+  //     const dialogRef = this.dialog.open(AddCartDialogComponent, {
+  //       width: '500px',
+  //       data: { course_id: course_id,
+  //               index: index
+  //         // CourseDetail: this.Courses
+  //       }
+  //     });
+  //   // } else {
+  //   //   this.Authenticat();
+  //   //   this.nav.navigate(['login']);
+  //   // }
+  // }
 
   removeFromWishlist(index, course_id) {
     console.log(index);

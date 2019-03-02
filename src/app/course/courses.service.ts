@@ -141,7 +141,14 @@ export class CoursesService {
       }
     });
   }
-
+  get_checkout_courses() {
+    const headers = new Headers();
+    if (isPlatformBrowser(this.platformId)) {
+      headers.append('Authorization', 'JWT ' + localStorage.getItem('Authorization'));
+    }
+    headers.append('Content-Type', 'application/json');
+    return this._http2.get(Config.api + 'courses/checkout/', {headers : headers}).map((response: Response) => response.json());
+  }
   add_to_cart_no_promo(course_id) {
     return this._http2.post(Config.api + 'courses/checkout/',
       {

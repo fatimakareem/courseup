@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderService } from '../header/header.service';
 import { Config } from '../Config';
 import { CourseCheckoutService } from '../course-checkout/course-checkout.service';
-import { AddCartDialogComponent } from '../cart-dialog/add-cart-dialog.component';
 import { RecentlyViewedCoursesComponent } from '../courses-all/recently-viewed-courses/recently-viewed-courses.component';
 import { MatDialog } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';

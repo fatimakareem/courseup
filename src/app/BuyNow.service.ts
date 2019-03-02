@@ -23,7 +23,27 @@ export class BuyNowService  {
         }
       });
   }
-  
+  public emptyCart: boolean;
+  totalcarts;
+  getcart(){
+    
+      // alert('calling Checkout Courses');
+      this.obj.get_checkout_courses().subscribe(response => {
+        if(response.hasOwnProperty("status")) {
+          this.emptyCart = response.status;
+          this.GlobalCartCourses = [];
+
+          // alert('Checkout Courses are Empty')
+        }
+        else {
+          this.GlobalCartCourses = response;
+          this.totalcarts=response.totalItems
+          this.global.getGolbalCartCourses(this.GlobalCartCourses);
+          this.emptyCart = false;
+        }
+      });
+   
+  }
   public buyNow(index, course_id,Logedin): void {
     if (Logedin === '1') {
       this.obj.add_to_cart_no_promo(course_id).subscribe(
@@ -35,7 +55,7 @@ export class BuyNowService  {
           }
           else {
             this.GlobalCartCourses.push(data[0]['json'].json());
-            this.global.getGolbalCartCourses(this.GlobalCartCourses);
+          this.getcart();
             BuyNowService.buySuccess();
             this.nav.navigate(['/checkout']);
           }
