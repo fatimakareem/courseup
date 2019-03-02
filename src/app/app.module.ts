@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NormalLayoutComponent } from "./layouts/normal-layout.component";
 import { UserProfileComponent } from './layouts/user-profile/user-profile.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
+// import { ChangePasswordComponent } from './change-password/change-password.component';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -88,13 +88,12 @@ import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angular4-social-login";
 
 import { BasicInfoService } from './basic-info/basic-info.service';
-import { SingleCategoryComponent } from './single-category/single-category.component';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BiddingService } from './bidding-dialog/bidding.service';
 import { EventsService } from './events/events.service';
 import { ContactUsService } from './contact-us/contact-us.service';
-import { ChatComponent } from './chat/chat.component';
+// import { ChatComponent } from './chat/chat.component';
 import { HomeService } from './home/home.service';
 import { SingleEventService } from './event/single-event.service';
 import { WebSocketService } from 'angular2-websocket-service';
@@ -153,9 +152,9 @@ export function provideConfig() {
     UserProfileComponent,
     AdminLayoutComponent,
 
-    ChangePasswordComponent,
-    SingleCategoryComponent,
-    ChatComponent,
+    // ChangePasswordComponent,
+  
+    // ChatComponent,
     WinbidDialogComponent,
     BiddingDialogComponent,
     BuynowDialogComponent,
@@ -218,7 +217,8 @@ export function provideConfig() {
     // MatToolbarModule
   ],
   entryComponents: [
-    ChatComponent, WinbidDialogComponent, BuynowDialogComponent, BiddingDialogComponent,AcceptOfferDialogComponent,OfferPayoutDialogComponent
+    // ChatComponent, 
+    WinbidDialogComponent, BuynowDialogComponent, BiddingDialogComponent,AcceptOfferDialogComponent,OfferPayoutDialogComponent
   ],
 
   providers: [

@@ -50,7 +50,7 @@
             <ngx-slick class="homeSlider" #slickModal="slick-modal" [config]="slideConfig">
                 <div class="item" ngxSlickItem *ngFor="let category of Categories">
                     <div class="image"> <a routerLink='/courses/{{category.id}}'> <img class="img"
-                                src="{{ImageUrl_storage}}{{category?.icon_Web_Home}}"
+                                src="../../assets/img/categories/{{category?.icon_Web_Home}}"
                                 onError="this.src='../../assets/img/default_thumbnail.png'"> </a> </div>
                     <div class="slide-overlay">
                         <h4 class="card-title"> <a routerLink='/cat_courses/{{category.id}}'

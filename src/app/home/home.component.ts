@@ -119,6 +119,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 this.obj2.get_categories().subscribe(response => {
   this.Categories = response;
+  this.global.getCategories(this.Categories);
   // this.loaded = true;
         this.loaded = true;
         $('.homeSlider').fadeOut(0);
@@ -194,7 +195,7 @@ this.obj2.get_categories().subscribe(response => {
             this.GlobalWishListCourses = data;
           }
         });
-
+        if (this.Logedin === '1') {
         this.obj_CoursesService.get_recommendcourse(this.page).subscribe(
           data => {
             this.Courses = data;
@@ -299,7 +300,7 @@ this.obj2.get_categories().subscribe(response => {
                 }
               ]};
           
-          });
+          });}
   }
   upperhome;
   ngOnInit() {
@@ -350,13 +351,9 @@ if (isPlatformBrowser(this.platformId)) {
     if (isPlatformBrowser(this.platformId)) {
       this.Logedin = localStorage.getItem('login');
       this.global.publishData(0);
-      // if (this.Logedin == null) {
-      //   this.IsLogedIn = false;
-      // } else {
-      //   this.IsLogedIn = true;
-      // }
+      
     }
-    // alert(this.IsLogedIn);
+  
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(HomeSliderEidtDialogComponent, {
@@ -365,9 +362,7 @@ if (isPlatformBrowser(this.platformId)) {
     });
   }
 
-  // buyNowClick1(index, course_id): void {
-  //   this.buyNowService.buyNow(index, course_id,this.Logedin)
-  // }
+  
   buyNowClick(index, course_id): void {
     if(this.Logedin === '1'){
     this.obj_CoursesService.buyNowcheck(index, course_id,this.Logedin).subscribe(
@@ -516,21 +511,7 @@ if (isPlatformBrowser(this.platformId)) {
       this.nav.navigate(['login']);
     }
   }
-  // openDialog3(index, course_id): void {
-  //   if (this.Logedin === '1') {
-  //     const dialogRef = this.dialog.open(AddCartDialogComponent, {
-  //       width: '500px',
-  //       data: { course_id: course_id,
-  //         // CourseDetail: this.Courses
-  //       }
-  //     });
-  //   } else {
-     
-       
-      
-  //     this.nav.navigate(['login']);
-  //   }
-  // }
+  
   goToTopRatedCourses() {
     this.nav.navigate(['courses/top-rated']);
   }

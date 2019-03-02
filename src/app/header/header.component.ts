@@ -164,34 +164,12 @@ public postedCoursesList:any;
   UserRole:any;
   totalcarts;
   ngOnInit() {
-    // this._home.get_role().subscribe(response => {
-    //   this.UserRole = response.Role;
-    //     alert(response.Role)
-    //     // alert('Geting DAta From Shared Service' + this.UserRole);
-    //   });
-    this.course.get_bid_courses(this.page).subscribe(response => {
-      this.BidCourses = response;
-    });
-
-    if (this.Logedin === '1'){
-      // alert('logedIn True');
-    }
-
-
-    // if(this.topOffer) {
-    //   $('.wrapp-content').addClass('offer');
-    // } else {
-    //   $('.wrapp-content').removeClass('offer');
-    // }
-
-    // this.Categories = this.global2.loadCategories();
-    this.obj.get_categories().subscribe(response => {
-      this.Categories = response;
-      // this.UserRole = this.getingRoleData.Role;
-      // alert('Home Role' + this.UserRole);
-      this.global2.getCategories(this.Categories);
-      this.loaded = true;
-    });
+   
+  
+    this.global2.Categories$.subscribe(
+      data => {
+        this.Categories = data;
+      });
 
     if (this.Logedin === '1') {
       this._home.get_role().subscribe(response => {
