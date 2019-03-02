@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {ChangePasswordComponent} from "./change-password.component";
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
-import {MatInputModule} from '@angular/material';
+import {MatInputModule,MatCardModule} from '@angular/material';
 import {LoaderModule} from "../loader/loader.module";
 // import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
@@ -22,7 +22,7 @@ const ChangePasswordRoutes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
- 
+    MatCardModule,
     MatInputModule,
     RouterModule.forChild(ChangePasswordRoutes),
     LoaderModule
