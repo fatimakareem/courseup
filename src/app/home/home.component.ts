@@ -565,7 +565,7 @@ if (isPlatformBrowser(this.platformId)) {
    
     if (this.Logedin === '1') {
       if(inwhishlist=='true'){
-        HomeComponent.wishlistSuccess();
+        HomeComponent.AlreadyInWishlistError();
       }else{
 
         this.obj_CoursesService.add_wishlist(course_id).subscribe(

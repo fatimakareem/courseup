@@ -289,13 +289,22 @@ export class CatTrendingNowCoursesComponent implements OnInit {
   // }
 
 
-  onclick(index, course_id) {
+  onclick(index, course_id,inwishlist) {
     if (this.Logedin === '1') {
+      if(inwishlist=='true'){
+        CatTrendingNowCoursesComponent.AlreadyInWishlistError();
+      }else{
       this.obj.add_wishlist(course_id).subscribe(
         data => {
           // console.log(data[0]['json'].json());
           if(data[0]['json'].json().hasOwnProperty("status")) {
-            CatTrendingNowCoursesComponent.AlreadyInWishlistError();
+            swal({
+              type: 'warning',
+              title: 'Oops! <br> This course already exists in your courses!',
+              showConfirmButton: false,
+              width: '512px',
+              timer: 2500
+            })
           }
           else {
             // console.log('enter in Else Block');
@@ -307,7 +316,7 @@ export class CatTrendingNowCoursesComponent implements OnInit {
         error => {
           // console.log(error);
         }
-      );
+      );}
     }
     else {
       CatTrendingNowCoursesComponent.Authenticat();
