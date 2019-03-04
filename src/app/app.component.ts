@@ -27,17 +27,17 @@ export class AppComponent implements OnInit {
               private global: GlobalService,
               private glb_ser: SimpleGlobal,
   @Inject(PLATFORM_ID) private platformId: Object ) {
-    this.LoggedIn = global.logedin;
-    this.GlobalChatVar = global.globalChatVar;
+    // this.LoggedIn = global.logedin;
+    // this.GlobalChatVar = global.globalChatVar;
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(ChatComponent, {
-      width: '400px',
-      height: '530px',
-      // data: {name: this.name, animal: this.animal}
-    });
-  }
+  // openDialog(): void {
+  //   const dialogRef = this.dialog.open(ChatComponent, {
+  //     width: '400px',
+  //     height: '530px',
+  //     // data: {name: this.name, animal: this.animal}
+  //   });
+  // }
 
   ngOnInit() {
     this.router.events.subscribe((evt) => {

@@ -18,7 +18,7 @@ import { AddReviewDialogComponent } from "./add-review-dialog/add-review-dialog.
 import { CoursesService } from "../course/courses.service";
 import { MessagesService } from "../Messages.service";
 import { FollowUnfollowService } from "../Follow-Unfollow.service";
-// import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
+import { BuynowDialogComponent } from '../buynow-dialog/buynow-dialog.component';
 import { AcceptOfferDialogComponent } from '../accept-offer-dialog/accept-offer-dialog.component';
 
 declare const $: any;
@@ -574,27 +574,72 @@ this.totallectures=response['Total Lectures'];
       });
    
   }
-  noPromo() {
-    this.obj.add_to_cart_no_promo(this.CourseId).subscribe(
+  // noPromo() {
+  //   this.obj.add_to_cart_no_promo(this.CourseId).subscribe(
+  //     data => {
+  //       // console.log(data[0]['json'].json());
+  //       if (data[0]['json'].json().hasOwnProperty("status")) {
+  //         this.alreadyInCartStatus = true;
+  //         // AddCartDialogComponent.AlreadyInCartError();
+  //         // this.dialogRef.close();
+  //       }
+  //       else {
+  //         this.GlobalCartCourses.push(data[0]['json'].json());
+  //         this.getcart();
+  //         // AddCartDialogComponent.CartSuccess();
+  //         // this.dialogRef.close();
+  //       }
+  //     },
+  //     error => {
+  //       // console.log(error);
+  //       // AddCartDialogComponent.CartError();
+  //     }
+  //   );
+  // }
+  buyNowClick(index, course_id): void {
+    if(this.Logedin === '1'){
+    this.obj3.buyNowcheck(index, course_id,this.Logedin).subscribe(
       data => {
-        // console.log(data[0]['json'].json());
-        if (data[0]['json'].json().hasOwnProperty("status")) {
-          this.alreadyInCartStatus = true;
-          // AddCartDialogComponent.AlreadyInCartError();
-          // this.dialogRef.close();
+        // alert(data.message)
+       if(this.Logedin === '1' && data.message=="Course is already in your My Courses"){
+        swal({
+          type: 'error',
+          title: 'You Already Bought this course',
+          showConfirmButton: false,
+          width: '512px',
+          timer: 1500
+        });
+       }
+    else if (this.Logedin === '1' && data.message != "Course is already in your My Courses") {
+      const dialogRef = this.dialog.open(BuynowDialogComponent, {
+        width: '500px',
+        data: { course_id: course_id,
+          // CourseDetail: this.Courses
         }
-        else {
-          this.GlobalCartCourses.push(data[0]['json'].json());
-          this.getcart();
-          // AddCartDialogComponent.CartSuccess();
-          // this.dialogRef.close();
-        }
-      },
-      error => {
-        // console.log(error);
-        // AddCartDialogComponent.CartError();
-      }
-    );
+      });
+    } else {
+     
+        swal({
+          type: 'error',
+          title: 'Authentication Required <br> Please Login or Signup first',
+          showConfirmButton: false,
+          width: '512px',
+          timer: 1500
+        });
+      
+      this.nav.navigate(['login']);
+    }})}
+    else{
+      swal({
+        type: 'error',
+        title: 'Authentication Required <br> Please Login or Signup first',
+        showConfirmButton: false,
+        width: '512px',
+        timer: 1500
+      });
+    
+    this.nav.navigate(['login']);
+    }
   }
   deletdeVideo(chapter_index, video_index, video_id) {
     swal({
@@ -873,7 +918,7 @@ this.totallectures=response['Total Lectures'];
           
           } else {
             this.wishlistCourses.splice(this.wishlistCourses.indexOf(this.wishlistCourses[index]),1);
-            this.GlobalCartCourses.push(data[0]['json'].json());
+            // this.GlobalCartCourses.push(data[0]['json'].json());
             this.getcart();
             swal({
               type: 'success',
@@ -944,13 +989,23 @@ this.totallectures=response['Total Lectures'];
   //   }
   // }
 
-  onclick(course_id) {
+  onclick(index,course_id,inwhishlist) {
     if (this.Logedin === '1') {
+      
+        if(inwhishlist=='true'){
+          SingleCourseComponent.AlreadyInWishlistError();
+        }else{
       this.obj3.add_wishlist(course_id).subscribe(
         data => {
           // console.log(data[0]['json'].json());
           if (data[0]['json'].json().hasOwnProperty("status")) {
-            SingleCourseComponent.AlreadyInWishlistError();
+            swal({
+              type: 'warning',
+              title: 'Oops! <br> This course already exists in your courses!',
+              showConfirmButton: false,
+              width: '512px',
+              timer: 2500
+            })
           }
           else {
             this.GlobalWishListCourses.push(data[0]['json'].json());
@@ -962,7 +1017,7 @@ this.totallectures=response['Total Lectures'];
         error => {
           // console.log(error);
         }
-      );
+      );}
     }
     else {
       SingleCourseComponent.Authenticat();
