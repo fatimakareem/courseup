@@ -46,7 +46,8 @@ export class BiddingDialogComponent implements OnInit {
       width: '512px',
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, add it!'
+      confirmButtonText: 'Yes',
+      cancelButtonText:'No'
     }).then((result) => {
       if (result.value) {
         this.obj.add_bid(this.model.bid_amount, this.data.bid_id).subscribe(

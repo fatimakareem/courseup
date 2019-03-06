@@ -54,7 +54,7 @@ export class WishlistCoursesComponent implements OnInit {
     console.log(course_id);
     swal({
       title: 'Are you sure you want to remove this course from wishlist? <br> You will not be able to revert this!',
-      type: 'question',
+      type: 'warning',
       showCancelButton: true,
       width: '512px',
       confirmButtonColor: '#3085d6',
