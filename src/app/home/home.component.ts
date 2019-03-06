@@ -114,7 +114,7 @@ export class HomeComponent implements OnInit, OnDestroy {
                   ]
               };
             }
-            $('.homeSlider').fadeIn(500).delay(200);
+           
           });
 
 this.obj2.get_categories().subscribe(response => {
@@ -122,54 +122,46 @@ this.obj2.get_categories().subscribe(response => {
   this.global.getCategories(this.Categories);
   // this.loaded = true;
         this.loaded = true;
-        $('.homeSlider').fadeOut(0);
-        if (this.Categories) {
-         this.slideConfig =  {
-              infinite: true,
-              slidesToShow: 5,
-              slidesToScroll: 5,
-              autoplay: false,
-              dots: false,
-              prevArrow: '<button class="leftRs">&lt;</button>',
-              nextArrow: '<button class="rightRs">&lt;</button>',
-              responsive: [
-                {
-                  breakpoint: 1025,
-                  settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 3,
-                    infinite: true
-                  }
-                },
-                {
-                  breakpoint: 769,
-                  settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: true
-                  }
-                },
-                {
-                  breakpoint: 605,
-                  settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true
-                  }
-                },
-                {
-                  breakpoint: 480,
-                  settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true
-                  }
-                }
-  
-              ]
-          };
-        }
-        $('.homeSlider').fadeIn(500).delay(200);
+        this.slideConfig = {
+          infinite: true,
+          speed: 900,
+          autoplay: true,
+          slidesToShow: 5,
+          slidesToScroll: 5,
+          prevArrow: '<button class="leftRs">&lt;</button>',
+          nextArrow: '<button class="rightRs">&lt;</button>',
+          responsive: [
+            {
+              breakpoint: 1025,
+              settings: {
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                infinite: true
+              }
+            },
+            {
+              breakpoint: 769,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1
+              }
+            },
+            {
+              breakpoint: 605,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                infinite: true
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+          ]};
       });
 
  

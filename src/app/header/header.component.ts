@@ -96,10 +96,11 @@ public postedCoursesList:any;
         this.userRole = data;
         // alert('Checking Role in Header' + data);
       });
-    this.global2.Categories$.subscribe(
-      data => {
-        this.Categories = data;
-      });
+      this.global.Categories$.subscribe(
+        data => {
+          this.Categories = data;
+          console.log(this.Categories)
+        });
 
     this.global2.openSearch$.subscribe(
       data => {
@@ -166,10 +167,7 @@ public postedCoursesList:any;
   ngOnInit() {
    
   
-    this.global2.Categories$.subscribe(
-      data => {
-        this.Categories = data;
-      });
+  
 
     if (this.Logedin === '1') {
       this._home.get_role().subscribe(response => {
