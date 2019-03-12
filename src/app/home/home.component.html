@@ -1,3 +1,4 @@
+<app-header></app-header>
 <header class="wrapp-header">
     <div id="main-bg-slider" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false">
         <div class="download-here"> <a
@@ -37,8 +38,9 @@
     <div class="main-nav">
         <div class="container">
             <div class="row">
-                <div class="col-md-12"> <button *ngIf="userRole==='Admin'" class="btn btn-primary"
-                        (click)="openDialog()">Edit</button>
+                <div class="col-md-12"> 
+                    <!-- <button *ngIf="userRole==='Admin'" class="btn btn-primary"
+                        (click)="openDialog()">Edit</button> -->
                     <form class="search-bg" action="./"> <input (click)="openSearch()"
                             class="search-bg__text form-control input-lg" type="text" name="search-bg-name"
                             placeholder="Which course would you like to search?"> <button class="search-bg__btn"
@@ -564,4 +566,4 @@
             </div>
         </div>
     </section>
-</main>
+</main><app-footer></app-footer>

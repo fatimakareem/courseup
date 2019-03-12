@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NormalLayoutComponent } from "./layouts/normal-layout.component";
 import { UserProfileComponent } from './layouts/user-profile/user-profile.component';
 // import { ChangePasswordComponent } from './change-password/change-password.component';
+import {HomeComponent} from "./home/home.component";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -151,7 +152,7 @@ export function provideConfig() {
     FooterComponent,
     UserProfileComponent,
     AdminLayoutComponent,
-
+    HomeComponent,
     // ChangePasswordComponent,
   
     // ChatComponent,
