@@ -235,9 +235,7 @@ this.obj2.get_categories().subscribe(response => {
         this.obj_CoursesService.get_recommendcourse(this.page).subscribe(
           data => {
             this.Courses = data;
-            // this.glb_ser['Courses'] = this.Courses;
-            // this.loaded = true;
-        
+          
             this.slideConfig = {
               infinite: true,
               speed: 900,
@@ -289,12 +287,9 @@ this.obj2.get_categories().subscribe(response => {
               this.courses = response;
               this.showrecent = true;
               this.global.setShowRecent(true);
-              //
-              // alert(this.Courses);
-              // alert('Recent Courses Come and Length is' + this.Courses.length)
+             
             }
-            // if(response.length===)
-            // console.log(this.Courses['courses']);
+           
             this.slideConfig = {
               infinite: true,
               speed: 900,
@@ -340,10 +335,7 @@ this.obj2.get_categories().subscribe(response => {
   }
   upperhome;
   ngOnInit() {
-    this.obj.get_upperhome_content().subscribe(response => {
-      this.upperhome = response;
-   
-    });
+    
 if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem('home', 'true');
     }
